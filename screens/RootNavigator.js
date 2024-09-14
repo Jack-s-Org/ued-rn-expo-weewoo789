@@ -17,10 +17,10 @@ const RootNavigator = () => {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {/* <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} /> */}
         {/* <Stack.Screen name="SignIn" component={SignInScreen} /> */}
-        {/* <Stack.Screen name="Main" component={MainScreens} /> */}
+        <Stack.Screen name="Main" component={MainScreens} />
         {/* <Stack.Screen name="NewHome" component={NewHomeScreen} /> */}
         {/* <Stack.Screen name="SelectRun" component={SelectRunScreen} /> */}
-        <Stack.Screen name="GetStarted" component={GetStartedScreen} />
+        {/* <Stack.Screen name="GetStarted" component={GetStartedScreen} /> */}
         {/* <Stack.Screen name="RouteLibrary" component={RouteLibraryScreen} /> */}
         {/* <Stack.Screen
           name="GeneralOverview"

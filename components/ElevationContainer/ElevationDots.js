@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 
-const Dots = ({ data, currentIndex }) => {
+const ElevationDots = ({ data, currentIndex }) => {
   return (
     <View
       style={{
@@ -20,7 +20,7 @@ const Dots = ({ data, currentIndex }) => {
             width: 6,
             marginRight: 8,
             borderRadius: 20,
-            backgroundColor: index === currentIndex ? "#000" : "#dadada",
+            backgroundColor: index === currentIndex ? "#86F9D9" : "#fff",
           }}
         />
       ))}
@@ -28,4 +28,4 @@ const Dots = ({ data, currentIndex }) => {
   );
 };
 
-export default Dots;
+export default ElevationDots;

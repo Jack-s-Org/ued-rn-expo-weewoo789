@@ -11,6 +11,15 @@ import {
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import CardSwipe from "@/components/CardSwipe";
+import AveragePace from "@/components/AveragePaceContainer/AveragePace";
+import AveragePaceCarousel from "@/components/AveragePaceContainer/AveragePaceCarousel";
+import SwipeableCarouselNormalHorizontal from "@/components/SwipeableCarousel/SwipeableCarouselNormalHorizontal";
+import HeartRateCarousel from "@/components/HeartRateContainer/HeartRateCarousel";
+import BackIcon from "@/components/BackIcon";
+import NextIcon from "@/components/NextIcon";
+import ElevationCarousel from "@/components/ElevationContainer/ElevationCarousel";
+import CaloriesCarousel from "@/components/CaloriesContainer/CaloriesCarousel";
+// import Dots from "@/components/SwipeableCarousel/Dots";
 
 const NewHomeScreen = () => {
   return (
@@ -192,63 +201,74 @@ const NewHomeScreen = () => {
             </ImageBackground>
           </View>
 
-          <View
-            style={{
-              padding: 20,
-              paddingTop: 0,
-              paddingBottom: 0,
-              flexGrow: 1,
-              // backgroundColor: "red",
-            }}
-          >
-            <View style={{ paddingBottom: 14 }}>
-              <Text style={styles.subheader}>Today's Plan</Text>
-            </View>
-            <ScrollView
-              horizontal
-              pagingEnabled
-              showsHorizontalScrollIndicator={false}
+          <ScrollView>
+            <View
               style={{
-                flex: 1,
-                // height: 118,
-                flexDirection: "row",
-                alignSelf: "flex-start",
-                columnGap: 8,
-                // paddingHorizontal: 20,
+                padding: 20,
+                paddingTop: 20,
+                paddingBottom: 0,
+                flexGrow: 1,
+                // backgroundColor: "red",
               }}
             >
               <View
                 style={{
                   flexDirection: "row",
+                  columnGap: 186,
+                  alignItems: "center",
+                }}
+              >
+                <View style={{ paddingVertical: 14 }}>
+                  <Text style={styles.subheader}>Today's Plan</Text>
+                </View>
+                <NextIcon></NextIcon>
+              </View>
+
+              <ScrollView
+                horizontal
+                pagingEnabled
+                showsHorizontalScrollIndicator={false}
+                style={{
+                  flex: 1,
+                  // height: 118,
+                  flexDirection: "row",
                   alignSelf: "flex-start",
                   columnGap: 8,
                   // paddingHorizontal: 20,
-                  // paddingTop: 300,
-                  // width: 380,
-                  // height: 118,
                 }}
               >
-                <Image
-                  source={require("@/assets/images/warmup.png")}
-                  style={{ width: 140, height: 117.27 }}
-                />
-                <Image
-                  source={require("@/assets/images/walk.png")}
-                  style={{ width: 140, height: 117.27 }}
-                />
-                <Image
-                  source={require("@/assets/images/run.png")}
-                  style={{ width: 140, height: 117.27 }}
-                />
-                <Image
-                  source={require("@/assets/images/rest.png")}
-                  style={{ width: 140, height: 117.27 }}
-                />
-              </View>
-            </ScrollView>
-          </View>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignSelf: "flex-start",
+                    columnGap: 8,
+                    // paddingHorizontal: 20,
+                    // paddingTop: 300,
+                    // width: 380,
+                    // height: 118,
+                  }}
+                >
+                  <Image
+                    source={require("@/assets/images/warmup.png")}
+                    style={{ width: 140, height: 117.27 }}
+                  />
+                  <Image
+                    source={require("@/assets/images/walk.png")}
+                    style={{ width: 140, height: 117.27 }}
+                  />
+                  <Image
+                    source={require("@/assets/images/run.png")}
+                    style={{ width: 140, height: 117.27 }}
+                  />
+                  <Image
+                    source={require("@/assets/images/rest.png")}
+                    style={{ width: 140, height: 117.27 }}
+                  />
+                </View>
+              </ScrollView>
+            </View>
 
-          {/* <View
+            {/* <View
             style={{ padding: 20, paddingTop: 0, flex: 1, marginTop: -110 }}
           >
             <Text
@@ -263,24 +283,70 @@ const NewHomeScreen = () => {
             </Text>
           </View> */}
 
-          <View
-            style={{
-              padding: 20,
-              paddingTop: 0,
-              paddingBottom: 0,
-              flexGrow: 1,
-              // backgroundColor: "blue",
-              marginTop: -110,
-            }}
-          >
-            <View>
-              <Text style={styles.subheader}>Previous Run</Text>
-            </View>
-          </View>
+            <View
+              style={{
+                // padding: 20,
+                // paddingTop: 0,
+                // paddingBottom: 0,
+                // flexGrow: 1,
+                // backgroundColor: "blue",
+                // marginTop: 20,
+                paddingHorizontal: 20,
+                paddingTop: 30,
+                paddingBottom: 0,
+              }}
+            >
+              <View>
+                <Text style={styles.subheader}>Previous Run</Text>
+              </View>
 
-          <View>
-            <CardSwipe></CardSwipe>
-          </View>
+              <View style={{ paddingTop: 14 }}>
+                <ImageBackground
+                  source={require("@/assets/images/avgpacecontainer.png")}
+                  style={{ width: 350, height: 180 }}
+                >
+                  <AveragePaceCarousel />
+                </ImageBackground>
+              </View>
+
+              <View style={{ paddingTop: 14 }}>
+                <ImageBackground
+                  source={require("@/assets/images/heartratecontainer.png")}
+                  style={{ width: 350, height: 180 }}
+                >
+                  <HeartRateCarousel />
+                </ImageBackground>
+              </View>
+
+              <View style={{ paddingTop: 14 }}>
+                <ImageBackground
+                  source={require("@/assets/images/elevationcontainer.png")}
+                  style={{
+                    width: 350,
+                    height: 180,
+                    // justifyContent: "center",
+                    // alignItems: "center",
+                  }}
+                >
+                  <ElevationCarousel />
+                </ImageBackground>
+              </View>
+
+              <View style={{ paddingTop: 14 }}>
+                <ImageBackground
+                  source={require("@/assets/images/caloriescontainer.png")}
+                  style={{
+                    width: 350,
+                    height: 180,
+                    // justifyContent: "center",
+                    // alignItems: "center",
+                  }}
+                >
+                  <CaloriesCarousel />
+                </ImageBackground>
+              </View>
+            </View>
+          </ScrollView>
         </ImageBackground>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -315,7 +381,28 @@ const styles = StyleSheet.create({
     fontSize: 20,
     backgroundColor: "transparent",
     color: "white",
-    marginTop: 30,
+    // marginTop: 30,
+  },
+
+  containerheader: {
+    fontFamily: "TransformaSansSemiBold",
+    fontSize: 20,
+    backgroundColor: "transparent",
+    color: "white",
+  },
+
+  containernumbers: {
+    fontFamily: "TransformaSansBold",
+    fontSize: 26,
+    backgroundColor: "transparent",
+    color: "white",
+  },
+
+  containerunits: {
+    fontFamily: "TransformaSansBold",
+    fontSize: 12,
+    backgroundColor: "transparent",
+    color: "white",
   },
 });
 
