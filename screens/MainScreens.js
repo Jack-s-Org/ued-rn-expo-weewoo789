@@ -10,6 +10,20 @@ import DiscoverScreen from "./DiscoverScreen";
 import AppDrawer from "./AppDrawer";
 import SettingsScreen from "./SettingsScreen";
 import AddScreen from "./AddScreen";
+import NewHomeScreen from "./NewHomeScreen";
+import SignInScreen from "./SignInScreen";
+import SelectRunScreen from "./SelectRunScreen";
+import GetStartedScreen from "./GetStartedScreen";
+import RouteLibraryScreen from "./RouteLibraryScreen";
+import DiscoverRoutesScreen from "./DiscoverRoutesScreen";
+import HomeIcon from "@/components/HomeIcon";
+import { setStatusBarBackgroundColor } from "expo-status-bar";
+import { StyleSheet, Text, Image, ImageBackground, View } from "react-native";
+import RunIcon from "@/components/RunIcon";
+import DiscoverIcon from "@/components/DiscoverIcon";
+import LibraryIcon from "@/components/LibraryIcon";
+import CustomizeIcon from "@/components/CustomizeIcon";
+import GeneralOverviewScreen from "./GeneralOverviewScreen";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,17 +31,46 @@ const Tab = createBottomTabNavigator();
 const Empty = () => null;
 
 const MainTabs = ({ navigation }) => {
-  const [unreadCount, setUnreadCount] = useState(3);
+  // const [unreadCount, setUnreadCount] = useState(3);
   return (
-    <AppDrawer navigation={navigation}>
-      <SafeAreaView style={{ height: "100%" }}>
-        <Tab.Navigator
-          screenOptions={{
-            headerShown: false,
-            tabBarActiveTintColor: "#408086",
-          }}
-        >
-          <Tab.Screen
+    // <AppDrawer navigation={navigation}>
+    // {/* <SafeAreaView
+    //   style={{
+    //     height: "100%",
+    //     flex: 1,
+    //     backgroundColor: "red",
+    //   }}
+    // > */}
+    <View style={{ flex: 1, overflow: "hidden", backgroundColor: "#020B08" }}>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          color: "transparent",
+          backgroundColor: "transparent",
+          tabBarInactiveTintColor: "#FFFFFF",
+          tabBarActiveTintColor: "#00DFA2",
+          tabBarStyle: {
+            backgroundColor: "#020B08",
+            // backgroundColor: "#FF0060",
+            height: 82,
+            borderTopLeftRadius: 40,
+            borderTopRightRadius: 40,
+            borderTopWidth: 0,
+            elevation: 0,
+            shadowOpacity: 0,
+            paddingTop: 0,
+            paddingBottom: 14,
+            margin: 0,
+            overflow: "hidden",
+            paddingHorizontal: 10,
+          },
+          tabBarLabelStyle: {
+            fontSize: 10,
+            marginTop: -18,
+          },
+        }}
+      >
+        {/* <Tab.Screen
             name="Home"
             component={HomeScreen}
             options={{
@@ -36,9 +79,88 @@ const MainTabs = ({ navigation }) => {
               ),
               tabBarLabel: "Home",
             }}
-          />
+          /> */}
+        <Tab.Screen
+          name="Home"
+          component={NewHomeScreen}
+          options={{
+            tabBarIcon: ({ color, size, focused }) => (
+              // <Ionicons name="home" size={size} color={color} />
+              <HomeIcon
+                name="home"
+                size={size}
+                color={focused ? "#00DFA2" : "#FFFFFF"}
+              ></HomeIcon>
+            ),
+            tabBarLabel: "Home",
+          }}
+        />
 
-          <Tab.Screen
+        <Tab.Screen
+          name="Discover"
+          component={DiscoverRoutesScreen}
+          options={{
+            tabBarIcon: ({ color, size, focused }) => (
+              // <Ionicons name="home" size={size} color={color} />
+              <DiscoverIcon
+                name="discover"
+                size={size}
+                color={focused ? "#00DFA2" : "#FFFFFF"}
+              ></DiscoverIcon>
+            ),
+            tabBarLabel: "Discover",
+          }}
+        />
+
+        <Tab.Screen
+          name="Run"
+          component={SelectRunScreen}
+          options={{
+            tabBarIcon: ({ color, size, focused }) => (
+              // <Ionicons name="home" size={size} color={color} />
+              <RunIcon
+                name="run"
+                size={size}
+                color={focused ? "#00DFA2" : "#FFFFFF"}
+              ></RunIcon>
+            ),
+            tabBarLabel: "Run",
+          }}
+        />
+
+        <Tab.Screen
+          name="Library"
+          component={RouteLibraryScreen}
+          options={{
+            tabBarIcon: ({ color, size, focused }) => (
+              // <Ionicons name="home" size={size} color={color} />
+              <LibraryIcon
+                name="library"
+                size={size}
+                color={focused ? "#00DFA2" : "#FFFFFF"}
+              ></LibraryIcon>
+            ),
+            tabBarLabel: "Library",
+          }}
+        />
+
+        <Tab.Screen
+          name="Customize"
+          component={RouteLibraryScreen}
+          options={{
+            tabBarIcon: ({ color, size, focused }) => (
+              // <Ionicons name="home" size={size} color={color} />
+              <CustomizeIcon
+                name="customize"
+                size={size}
+                color={focused ? "#00DFA2" : "#FFFFFF"}
+              ></CustomizeIcon>
+            ),
+            tabBarLabel: "Customize",
+          }}
+        />
+
+        {/* <Tab.Screen
             name="Discover"
             component={DiscoverScreen}
             options={{
@@ -47,55 +169,56 @@ const MainTabs = ({ navigation }) => {
               ),
               tabBarLabel: "Discover",
             }}
-          />
+          /> */}
 
-          <Tab.Screen
-            name="AddTab"
-            component={Empty} // this is a workaround to show a full screen when this tab is pressed
-            options={{
-              tabBarIcon: ({ color }) => (
-                <Ionicons name="add" size={36} color={color} />
-              ),
-              tabBarLabel: () => null,
-            }}
-            listeners={{
-              tabPress: (e) => {
-                e.preventDefault(); // stop default navigation
-                navigation.navigate("Add"); // manually navigate to the stack screen outside of the tab navigators
-              },
-            }}
-          />
+        {/* <Tab.Screen
+        name="AddTab"
+        component={Empty} // this is a workaround to show a full screen when this tab is pressed
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="add" size={36} color={color} />
+          ),
+          tabBarLabel: () => null,
+        }}
+        listeners={{
+          tabPress: (e) => {
+            e.preventDefault(); // stop default navigation
+            navigation.navigate("Add"); // manually navigate to the stack screen outside of the tab navigators
+          },
+        }}
+      /> */}
 
-          <Tab.Screen
-            name="Inbox"
-            component={NotificationsScreen}
-            options={{
-              tabBarIcon: ({ color, size }) => (
-                <Ionicons name="chatbox" size={size} color={color} />
-              ),
-              tabBarLabel: "Inbox",
-              tabBarBadge: unreadCount,
-            }}
-            listeners={{
-              tabPress: () => {
-                setUnreadCount(null);
-              },
-            }}
-          />
+        {/* <Tab.Screen
+        name="Inbox"
+        component={NotificationsScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="chatbox" size={size} color={color} />
+          ),
+          tabBarLabel: "Inbox",
+          // tabBarBadge: unreadCount,
+        }}
+        // listeners={{
+        //   tabPress: () => {
+        //     setUnreadCount(null);
+        //   },
+        // }}
+      /> */}
 
-          <Tab.Screen
-            name="SettingsDrawer"
-            component={MeScreen}
-            options={{
-              tabBarIcon: ({ color, size }) => (
-                <Ionicons name="person" size={size} color={color} />
-              ),
-              tabBarLabel: "Me",
-            }}
-          />
-        </Tab.Navigator>
-      </SafeAreaView>
-    </AppDrawer>
+        {/* <Tab.Screen
+        name="SettingsDrawer"
+        component={MeScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person" size={size} color={color} />
+          ),
+          tabBarLabel: "Me",
+        }}
+      /> */}
+      </Tab.Navigator>
+    </View>
+    // {/* </SafeAreaView> */}
+    // </AppDrawer>
   );
 };
 
@@ -115,6 +238,42 @@ const MainScreens = () => {
       <MainStacks.Screen
         name="Settings"
         component={SettingsScreen}
+        options={{ animation: "fade_from_bottom" }}
+      />
+      <MainStacks.Screen
+        name="SelectRun"
+        component={SelectRunScreen}
+        options={{ animation: "fade_from_bottom", headerShown: false }}
+      />
+      <MainStacks.Screen
+        name="GetStarted"
+        component={GetStartedScreen}
+        options={{ animation: "fade_from_bottom", headerShown: false }}
+      />
+      <MainStacks.Screen
+        name="RouteLibrary"
+        component={RouteLibraryScreen}
+        options={{ animation: "fade_from_bottom", headerShown: false }}
+      />
+      <MainStacks.Screen
+        name="DiscoverRoutes"
+        component={DiscoverRoutesScreen}
+        options={{ animation: "fade_from_bottom", headerShown: false }}
+      />
+      <MainStacks.Screen
+        name="GeneralOverview"
+        component={GeneralOverviewScreen}
+        options={{ animation: "fade_from_bottom", headerShown: false }}
+      />
+      <MainStacks.Screen
+        name="NewHome"
+        component={NewHomeScreen}
+        options={{ animation: "fade_from_bottom", headerShown: false }}
+      />
+
+      <MainStacks.Screen
+        name="SignIn"
+        component={SignInScreen}
         options={{ animation: "fade_from_bottom" }}
       />
     </MainStacks.Navigator>
