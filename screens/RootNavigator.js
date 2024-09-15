@@ -8,6 +8,7 @@ import SelectRunScreen from "./SelectRunScreen";
 import GetStartedScreen from "./GetStartedScreen";
 import RouteLibraryScreen from "./RouteLibraryScreen";
 import GeneralOverviewScreen from "./GeneralOverviewScreen";
+import WhatToDoScreen from "./WhatToDoScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,15 +18,16 @@ const RootNavigator = () => {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {/* <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} /> */}
         {/* <Stack.Screen name="SignIn" component={SignInScreen} /> */}
-        <Stack.Screen name="Main" component={MainScreens} />
+        {/* <Stack.Screen name="Main" component={MainScreens} /> */}
         {/* <Stack.Screen name="NewHome" component={NewHomeScreen} /> */}
         {/* <Stack.Screen name="SelectRun" component={SelectRunScreen} /> */}
-        {/* <Stack.Screen name="GetStarted" component={GetStartedScreen} /> */}
+        <Stack.Screen name="GetStarted" component={GetStartedScreen} />
         {/* <Stack.Screen name="RouteLibrary" component={RouteLibraryScreen} /> */}
         {/* <Stack.Screen
           name="GeneralOverview"
           component={GeneralOverviewScreen}
         /> */}
+        {/* <Stack.Screen name="WhatToDo" component={WhatToDoScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -24,11 +24,51 @@ import DiscoverIcon from "@/components/DiscoverIcon";
 import LibraryIcon from "@/components/LibraryIcon";
 import CustomizeIcon from "@/components/CustomizeIcon";
 import GeneralOverviewScreen from "./GeneralOverviewScreen";
+import WhatToDoScreen from "./WhatToDoScreen";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const Empty = () => null;
+
+const getCommon = (Stack) => {
+  return [
+    <Stack.Screen
+      key="selectrun"
+      name="SelectRun"
+      component={SelectRunScreen}
+    />,
+    <Stack.Screen
+      key="getstarted"
+      name="GetStarted"
+      component={GetStartedScreen}
+    />,
+  ];
+};
+
+// const Tab1 = () => {
+//   const MainStack = createNativeStackNavigator();
+//   const common = getCommon(Tab);
+
+//   return (
+//     <Tab.Navigator>
+//       <Tab.Screen name="selectrun" component={SelectRunScreen} />
+//       {common}
+//     </Tab.Navigator>
+//   );
+// };
+
+// const Tab2 = () => {
+//   const MainStack = createNativeStackNavigator();
+//   const common = getCommon(Tab);
+
+//   return (
+//     <Tab.Navigator>
+//       <Tab.Screen name="getstarted" component={GetStartedScreen} />
+//       {common}
+//     </Tab.Navigator>
+//   );
+// };
 
 const MainTabs = ({ navigation }) => {
   // const [unreadCount, setUnreadCount] = useState(3);
@@ -127,6 +167,38 @@ const MainTabs = ({ navigation }) => {
             tabBarLabel: "Run",
           }}
         />
+
+        {/* <Tab.Screen
+          name="Run"
+          component={Tab1}
+          options={{
+            tabBarIcon: ({ color, size, focused }) => (
+              // <Ionicons name="home" size={size} color={color} />
+              <RunIcon
+                name="run"
+                size={size}
+                color={focused ? "#00DFA2" : "#FFFFFF"}
+              ></RunIcon>
+            ),
+            tabBarLabel: "Run",
+          }}
+        /> */}
+
+        {/* <Tab.Screen
+          name="Run"
+          component={Tab2}
+          options={{
+            tabBarIcon: ({ color, size, focused }) => (
+              // <Ionicons name="home" size={size} color={color} />
+              <RunIcon
+                name="run"
+                size={size}
+                color={focused ? "#00DFA2" : "#FFFFFF"}
+              ></RunIcon>
+            ),
+            tabBarLabel: "Run",
+          }}
+        /> */}
 
         <Tab.Screen
           name="Library"
@@ -263,6 +335,11 @@ const MainScreens = () => {
       <MainStacks.Screen
         name="GeneralOverview"
         component={GeneralOverviewScreen}
+        options={{ animation: "fade_from_bottom", headerShown: false }}
+      />
+      <MainStacks.Screen
+        name="WhatToDo"
+        component={WhatToDoScreen}
         options={{ animation: "fade_from_bottom", headerShown: false }}
       />
       <MainStacks.Screen

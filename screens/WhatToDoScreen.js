@@ -11,9 +11,12 @@ import {
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import BackIcon from "@/components/BackIcon";
-import { CollapsibleContainer } from "@/components/CollapsibleContainer";
+import SearchIcon from "@/components/SearchIcon";
+import { useNavigation } from "@react-navigation/native";
+import NextIcon from "@/components/NextIcon";
 
-const GetStartedScreen = () => {
+const RouteLibraryScreen = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ height: "100%" }}>
@@ -44,13 +47,13 @@ const GetStartedScreen = () => {
                 // justifyContent: "center",
                 marginBottom: 6,
                 marginTop: 26,
-                top: -8,
+                top: -14,
                 // backgroundColor: "red",
                 // paddingTop: 0,
               }}
             >
               <View>
-                <BackIcon></BackIcon>
+                <BackIcon onPress={() => navigation.goBack()}></BackIcon>
               </View>
 
               <View>
@@ -61,41 +64,16 @@ const GetStartedScreen = () => {
                     backgroundColor: "transparent",
                     color: "white",
                     textAlign: "center",
-                    width: 272,
+                    width: 250,
                   }}
                 >
-                  Sweet! Let's get you started!
+                  What To Do
                 </Text>
               </View>
-            </View>
-          </ImageBackground>
 
-          <ImageBackground
-            source={require("@/assets/images/selectioncontainer.png")}
-            style={{
-              width: 350,
-              height: 268,
-              alignSelf: "center",
-              marginTop: 14,
-            }}
-          >
-            <View style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
               <View>
-                <Text
-                  style={{
-                    fontFamily: "TransformaMixSemiBold",
-                    fontSize: 20,
-                    backgroundColor: "transparent",
-                    color: "white",
-                  }}
-                >
-                  Where will you run today?
-                </Text>
+                <NextIcon></NextIcon>
               </View>
-            </View>
-
-            <View style={{ backgroundColor: "red" }}>
-              <CollapsibleContainer></CollapsibleContainer>
             </View>
           </ImageBackground>
         </ImageBackground>
@@ -105,15 +83,33 @@ const GetStartedScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  text: {
+  locationtitle: {
     fontFamily: "TransformaMixSemiBold",
-    fontSize: 20,
+    fontSize: 22,
     backgroundColor: "transparent",
     color: "white",
+  },
+
+  card: {
     justifyContent: "center",
     alignItems: "center",
-    textAlign: "center",
+  },
+
+  locationdetail: {
+    fontFamily: "TransformaSansMedium",
+    fontSize: 12,
+    backgroundColor: "transparent",
+    color: "white",
+  },
+
+  cardtext: {
+    flexDirection: "column",
+    rowGap: 0,
+    paddingHorizontal: 30,
+    position: "absolute",
+    bottom: 0,
+    paddingVertical: 20,
   },
 });
 
-export default GetStartedScreen;
+export default RouteLibraryScreen;
