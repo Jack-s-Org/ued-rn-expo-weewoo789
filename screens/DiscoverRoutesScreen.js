@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Text,
   Button,
@@ -16,6 +17,14 @@ import { useNavigation } from "@react-navigation/native";
 
 const DiscoverRoutesScreen = () => {
   const navigation = useNavigation();
+  const [showPopular, setShowPopular] = useState(true);
+  const [casualSelected, setCasualSelected] = useState(false);
+
+  const onCasualPress = () => {
+    setShowPopular(!showPopular);
+    setCasualSelected(!casualSelected);
+  };
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ height: "100%" }}>
@@ -135,18 +144,31 @@ const DiscoverRoutesScreen = () => {
             </View>
 
             <View>
-              <ImageBackground
-                source={require("@/assets/images/buttonframe.png")}
-                style={{
-                  width: 78,
-                  height: 38,
-                  justifyContent: "center",
-                  textAlign: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Text style={styles.buttontext}>Casual</Text>
-              </ImageBackground>
+              <Pressable onPress={onCasualPress}>
+                <ImageBackground
+                  source={
+                    casualSelected
+                      ? require("@/assets/images/buttonselected.png")
+                      : require("@/assets/images/buttonframe.png")
+                  }
+                  style={{
+                    width: 78,
+                    height: 38,
+                    justifyContent: "center",
+                    textAlign: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Text
+                    style={[
+                      styles.buttontext,
+                      casualSelected ? styles.selectedButtonText : {},
+                    ]}
+                  >
+                    Casual
+                  </Text>
+                </ImageBackground>
+              </Pressable>
             </View>
 
             <View>
@@ -181,42 +203,44 @@ const DiscoverRoutesScreen = () => {
           </View>
 
           <ScrollView>
-            <View style={{ paddingHorizontal: 20 }}>
-              <View>
-                <Text style={styles.categorytext}>Popular</Text>
-              </View>
-
-              <ScrollView horizontal>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    columnGap: 10,
-                    paddingVertical: 14,
-                  }}
-                >
-                  <View>
-                    <Image
-                      source={require("@/assets/images/popular1.png")}
-                      style={{ width: 148, height: 206 }}
-                    />
-                  </View>
-                  <View>
-                    <Image
-                      source={require("@/assets/images/popular2.png")}
-                      style={{ width: 148, height: 206 }}
-                    />
-                  </View>
-                  <View>
-                    <Image
-                      source={require("@/assets/images/popular3.png")}
-                      style={{ width: 148, height: 206 }}
-                    />
-                  </View>
+            {showPopular && (
+              <View style={{ paddingHorizontal: 20, paddingBottom: 22 }}>
+                <View>
+                  <Text style={styles.categorytext}>Popular</Text>
                 </View>
-              </ScrollView>
-            </View>
 
-            <View style={{ paddingHorizontal: 20, paddingTop: 22 }}>
+                <ScrollView horizontal>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      columnGap: 10,
+                      paddingVertical: 14,
+                    }}
+                  >
+                    <View>
+                      <Image
+                        source={require("@/assets/images/popular1.png")}
+                        style={{ width: 148, height: 206 }}
+                      />
+                    </View>
+                    <View>
+                      <Image
+                        source={require("@/assets/images/popular2.png")}
+                        style={{ width: 148, height: 206 }}
+                      />
+                    </View>
+                    <View>
+                      <Image
+                        source={require("@/assets/images/popular3.png")}
+                        style={{ width: 148, height: 206 }}
+                      />
+                    </View>
+                  </View>
+                </ScrollView>
+              </View>
+            )}
+
+            <View style={{ paddingHorizontal: 20 }}>
               <Text style={styles.categorytext}>New</Text>
             </View>
             <View
@@ -347,6 +371,13 @@ const styles = StyleSheet.create({
     fontFamily: "TransformaMixSemiBold",
     fontSize: 20,
     color: "white",
+    backgroundColor: "transparent",
+  },
+
+  selectedButtonText: {
+    fontFamily: "TransformaSansMedium",
+    fontSize: 12,
+    color: "black",
     backgroundColor: "transparent",
   },
 });

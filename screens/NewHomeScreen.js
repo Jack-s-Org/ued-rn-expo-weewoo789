@@ -21,6 +21,7 @@ import ElevationCarousel from "@/components/ElevationContainer/ElevationCarousel
 import CaloriesCarousel from "@/components/CaloriesContainer/CaloriesCarousel";
 // import Dots from "@/components/SwipeableCarousel/Dots";
 import { StatusBar } from "expo-status-bar";
+import ProfileIcon from "@/components/ProfileIcon";
 
 const NewHomeScreen = () => {
   return (
@@ -47,7 +48,7 @@ const NewHomeScreen = () => {
                 style={{
                   flexDirection: "row",
                   alignSelf: "center",
-                  alignItems: "baseline",
+                  alignItems: "center",
                   // marginTop: "-154%",
                   // marginTop: -480,
                   marginBottom: 6,
@@ -73,14 +74,21 @@ const NewHomeScreen = () => {
                 >
                   Hello, Yi Wen!
                 </Text>
-                <Image
+                {/* <Image
                   source={require("@/assets/images/profileicon.png")}
                   style={{
                     justifyContent: "center",
                     alignContent: "center",
                     marginLeft: 48,
                   }}
-                />
+                /> */}
+                <ProfileIcon
+                  style={{
+                    justifyContent: "center",
+                    alignContent: "center",
+                    marginLeft: 48,
+                  }}
+                ></ProfileIcon>
               </View>
               <View
                 style={{
