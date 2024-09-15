@@ -12,8 +12,10 @@ import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import BackIcon from "@/components/BackIcon";
 import SearchIcon from "@/components/SearchIcon";
+import { useNavigation } from "@react-navigation/native";
 
 const RouteLibraryScreen = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ height: "100%" }}>
@@ -50,7 +52,7 @@ const RouteLibraryScreen = () => {
               }}
             >
               <View>
-                <BackIcon></BackIcon>
+                <BackIcon onPress={() => navigation.goBack()}></BackIcon>
               </View>
 
               <View>

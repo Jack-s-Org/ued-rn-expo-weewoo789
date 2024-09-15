@@ -20,11 +20,14 @@ import NextIcon from "@/components/NextIcon";
 import ElevationCarousel from "@/components/ElevationContainer/ElevationCarousel";
 import CaloriesCarousel from "@/components/CaloriesContainer/CaloriesCarousel";
 // import Dots from "@/components/SwipeableCarousel/Dots";
+import { StatusBar } from "expo-status-bar";
 
 const NewHomeScreen = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ height: "100%" }}>
+        <StatusBar hidden={true} />
+
         {/* <Text>New Home</Text> */}
         <ImageBackground
           source={require("@/assets/images/background.png")}

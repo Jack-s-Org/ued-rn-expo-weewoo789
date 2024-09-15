@@ -17,8 +17,10 @@ import TreadmillIcon from "@/components/TreadmillIcon";
 import TrailRunIcon from "@/components/TrailRunIcon";
 import TempoRunIcon from "@/components/TempoRunIcon";
 import BeachRunIcon from "@/components/BeachRunIcon";
+import { useNavigation } from "@react-navigation/native";
 
 const SelectRunScreen = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ height: "100%" }}>
@@ -55,7 +57,7 @@ const SelectRunScreen = () => {
             }}
           >
             <View>
-              <BackIcon></BackIcon>
+              <BackIcon onPress={() => navigation.goBack()}></BackIcon>
             </View>
             <View
             // style={{
