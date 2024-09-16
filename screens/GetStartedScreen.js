@@ -12,6 +12,8 @@ import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import BackIcon from "@/components/BackIcon";
 import { CollapsibleContainer } from "@/components/CollapsibleContainer";
+import Accordion from "@/components/Accordion";
+import AccordionList from "@/components/AccordionList";
 
 const GetStartedScreen = () => {
   return (
@@ -70,7 +72,7 @@ const GetStartedScreen = () => {
             </View>
           </ImageBackground>
 
-          <ImageBackground
+          {/* <ImageBackground
             source={require("@/assets/images/selectioncontainer.png")}
             style={{
               width: 350,
@@ -92,12 +94,16 @@ const GetStartedScreen = () => {
                   Where will you run today?
                 </Text>
               </View>
-            </View>
+            </View> */}
 
-            <View style={{ backgroundColor: "red" }}>
+          {/* <View style={{ backgroundColor: "red" }}>
               <CollapsibleContainer></CollapsibleContainer>
-            </View>
-          </ImageBackground>
+            </View> */}
+
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <AccordionList />
+          </View>
+          {/* </ImageBackground> */}
         </ImageBackground>
       </SafeAreaView>
     </SafeAreaProvider>

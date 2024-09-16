@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import Animated, {
   useAnimatedStyle,
@@ -7,30 +7,39 @@ import Animated, {
 } from "react-native-reanimated";
 
 export const CollapsibleContainer = ({ children, expanded }) => {
-  const [height, setHeight] = useState(0);
+  const [measuredHeight, setMeasuredHeight] = useState(0);
   const animatedHeight = useSharedValue(0);
 
   const onLayout = (event) => {
-    const onLayoutHeight = event.nativeEvent.layout.height;
+    const layoutHeight = event.nativeEvent.layout.height;
+    console.log("onLayout height captured:", layoutHeight);
 
-    if (onLayoutHeight > 0 && height !== onLayoutHeight) {
-      setHeight(onLayoutHeight);
+    // Set the height only once after it is captured
+    if (layoutHeight > 0 && measuredHeight === 0) {
+      setMeasuredHeight(layoutHeight);
     }
   };
 
-  const collapsableStyle = useAnimatedStyle(() => {
-    animatedHeight.value = expanded ? withTiming(height) : withTiming(0);
+  // Apply animation once the measuredHeight is available
+  useEffect(() => {
+    if (measuredHeight > 0) {
+      animatedHeight.value = expanded
+        ? withTiming(measuredHeight)
+        : withTiming(0);
+      console.log("Animating to:", expanded ? measuredHeight : 0);
+    }
+  }, [expanded, measuredHeight]);
 
+  const animatedStyle = useAnimatedStyle(() => {
     return {
       height: animatedHeight.value,
+      overflow: "hidden",
     };
-  }, [expanded, height]);
+  });
 
   return (
-    <Animated.View style={[collapsableStyle, { overflow: "hidden" }]}>
-      <View style={{ position: "absolute" }} onLayout={onLayout}>
-        {children}
-      </View>
+    <Animated.View style={animatedStyle}>
+      <View onLayout={onLayout}>{children}</View>
     </Animated.View>
   );
 };
