@@ -23,15 +23,75 @@ export default function AccordionList() {
   };
 
   return (
-    <ScrollView>
-      <Animated.View style={{ height: containerHeight }}>
-        <ImageBackground
-          source={require("@/assets/images/selectioncontainer.png")} // The image for the container background
-          style={[styles.imageBackground, { height: containerHeight }]} // Dynamically update the height
-          resizeMode="cover" // To ensure the image resizes correctly
-        >
-          <View style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
-            <View>
+    <ScrollView style={{ paddingBottom: 20 }}>
+      <View style={{ flex: 1, flexGrow: 1 }}>
+        <Animated.View style={{ height: containerHeight }}>
+          <ImageBackground
+            source={require("@/assets/images/selectioncontainer.png")} // The image for the container background
+            style={[styles.imageBackground, { height: containerHeight }]} // Dynamically update the height
+            resizeMode="cover" // To ensure the image resizes correctly
+          >
+            <View
+              style={{
+                paddingHorizontal: 20,
+                paddingTop: 10,
+                paddingBottom: 12,
+              }}
+            >
+              <View>
+                <Text
+                  style={{
+                    fontFamily: "TransformaMixSemiBold",
+                    fontSize: 20,
+                    backgroundColor: "transparent",
+                    color: "white",
+                  }}
+                >
+                  Where will you run today?
+                </Text>
+              </View>
+            </View>
+
+            <Accordion
+              title="Saved routes"
+              details="Running on familiar routes can never go wrong. Explore your selection of saved routes."
+              defaultImage={require("@/assets/images/savedroutescontainer.png")} // Image for accordion 1
+              expandedImage={require("@/assets/images/savedroutesexpanded.png")}
+              button={<SavedRoutesButton />}
+              onToggle={(heightChange) => updateContainerHeight(heightChange)}
+            />
+            <Accordion
+              title="Discover routes"
+              details="Explore new routes curated by the community. Trying something new doesn’t hurt!"
+              defaultImage={require("@/assets/images/discoverroutescontainer.png")} // Image for accordion 2
+              expandedImage={require("@/assets/images/discoverroutesexpanded.png")}
+              button={<DiscoverRoutesButton />}
+              onToggle={(heightChange) => updateContainerHeight(heightChange)}
+            />
+            <Accordion
+              title="Customize route"
+              details="Spice things up by creating your own route and adding new data to our database!"
+              defaultImage={require("@/assets/images/customizeroutecontainer.png")} // Image for accordion 3
+              expandedImage={require("@/assets/images/customizerouteexpanded.png")}
+              button={<CustomizeRouteButton />}
+              onToggle={(heightChange) => updateContainerHeight(heightChange)}
+            />
+          </ImageBackground>
+        </Animated.View>
+
+        <View style={[styles.routesContainer]}>
+          <ImageBackground
+            source={require("@/assets/images/routescontainer.png")}
+            style={{ width: 350, height: 752 }}
+            //   resizeMode="cover"
+          >
+            <View
+              style={{
+                paddingHorizontal: 20,
+                paddingTop: 10,
+                paddingBottom: 12,
+              }}
+            >
               <Text
                 style={{
                   fontFamily: "TransformaMixSemiBold",
@@ -40,118 +100,87 @@ export default function AccordionList() {
                   color: "white",
                 }}
               >
-                Where will you run today?
+                Previous Routes
               </Text>
             </View>
-          </View>
 
-          <Accordion
-            title="Saved routes"
-            details="Running on familiar routes can never go wrong. Explore your selection of saved routes."
-            defaultImage={require("@/assets/images/savedroutescontainer.png")} // Image for accordion 1
-            expandedImage={require("@/assets/images/savedroutesexpanded.png")}
-            button={<SavedRoutesButton />}
-            onToggle={(heightChange) => updateContainerHeight(heightChange)}
-          />
-          <Accordion
-            title="Discover routes"
-            details="Explore new routes curated by the community. Trying something new doesn’t hurt!"
-            defaultImage={require("@/assets/images/discoverroutescontainer.png")} // Image for accordion 2
-            expandedImage={require("@/assets/images/discoverroutesexpanded.png")}
-            button={<DiscoverRoutesButton />}
-            onToggle={(heightChange) => updateContainerHeight(heightChange)}
-          />
-          <Accordion
-            title="Customize route"
-            details="Spice things up by creating your own route and adding new data to our database!"
-            defaultImage={require("@/assets/images/customizeroutecontainer.png")} // Image for accordion 3
-            expandedImage={require("@/assets/images/customizerouteexpanded.png")}
-            button={<CustomizeRouteButton />}
-            onToggle={(heightChange) => updateContainerHeight(heightChange)}
-          />
-        </ImageBackground>
-      </Animated.View>
+            <View style={{ flexDirection: "column", rowGap: 10 }}>
+              <View style={styles.card}>
+                <ImageBackground
+                  source={require("@/assets/images/getstartedroute1.png")}
+                  style={{ width: 309, height: 165 }}
+                >
+                  <View style={styles.cardtext}>
+                    <View>
+                      <Text style={styles.locationtitle}>Bukit Kiara Peak</Text>
+                    </View>
+                    <View>
+                      <Text style={styles.locationdetail}>
+                        Bukit Kiara Forest Reserve . 5.6 km
+                      </Text>
+                    </View>
+                  </View>
+                </ImageBackground>
+              </View>
 
-      <View style={[styles.routesContainer]}>
-        <ImageBackground
-          source={require("@/assets/images/routescontainer.png")}
-          style={{ width: 350, height: 752 }}
-          //   resizeMode="cover"
-        >
-          <View style={{ flexDirection: "column", rowGap: 10 }}>
-            <View style={styles.card}>
-              <ImageBackground
-                source={require("@/assets/images/bukitkiarapeakcard.png")}
-                style={{ width: 310, height: 165 }}
-              >
-                <View style={styles.cardtext}>
-                  <View>
-                    <Text style={styles.locationtitle}>Bukit Kiara Peak</Text>
+              <View style={styles.card}>
+                <ImageBackground
+                  source={require("@/assets/images/getstartedroute2.png")}
+                  style={{ width: 309, height: 165 }}
+                >
+                  <View style={styles.cardtext}>
+                    <View>
+                      <Text style={styles.locationtitle}>Sri Bintang Hill</Text>
+                    </View>
+                    <View>
+                      <Text style={styles.locationdetail}>
+                        Bukit Seri Bintang . 2.3 km
+                      </Text>
+                    </View>
                   </View>
-                  <View>
-                    <Text style={styles.locationdetail}>
-                      Bukit Kiara Forest Reserve . 5.6 km
-                    </Text>
+                </ImageBackground>
+              </View>
+
+              <View style={styles.card}>
+                <ImageBackground
+                  source={require("@/assets/images/getstartedroute3.png")}
+                  style={{ width: 309, height: 165 }}
+                >
+                  <View style={styles.cardtext}>
+                    <View>
+                      <Text style={styles.locationtitle}>Desa Park City</Text>
+                    </View>
+                    <View>
+                      <Text style={styles.locationdetail}>
+                        The Central Park . 3.4 km
+                      </Text>
+                    </View>
                   </View>
-                </View>
-              </ImageBackground>
+                </ImageBackground>
+              </View>
+
+              <View style={styles.card}>
+                <ImageBackground
+                  source={require("@/assets/images/getstartedroute4.png")}
+                  style={{ width: 309, height: 165 }}
+                >
+                  <View style={styles.cardtext}>
+                    <View>
+                      <Text style={styles.locationtitle}>
+                        Bukit Gasing Loop
+                      </Text>
+                    </View>
+                    <View>
+                      <Text style={styles.locationdetail}>
+                        Bukit Gasing . 3.9 km
+                      </Text>
+                    </View>
+                  </View>
+                </ImageBackground>
+              </View>
             </View>
-
-            <View style={styles.card}>
-              <ImageBackground
-                source={require("@/assets/images/sribintanghillcard.png")}
-                style={{ width: 310, height: 165 }}
-              >
-                <View style={styles.cardtext}>
-                  <View>
-                    <Text style={styles.locationtitle}>Sri Bintang Hill</Text>
-                  </View>
-                  <View>
-                    <Text style={styles.locationdetail}>
-                      Bukit Seri Bintang . 2.3 km
-                    </Text>
-                  </View>
-                </View>
-              </ImageBackground>
-            </View>
-
-            <View style={styles.card}>
-              <ImageBackground
-                source={require("@/assets/images/desaparkcitycard.png")}
-                style={{ width: 310, height: 165 }}
-              >
-                <View style={styles.cardtext}>
-                  <View>
-                    <Text style={styles.locationtitle}>Desa Park City</Text>
-                  </View>
-                  <View>
-                    <Text style={styles.locationdetail}>
-                      The Central Park . 3.4 km
-                    </Text>
-                  </View>
-                </View>
-              </ImageBackground>
-            </View>
-
-            <View style={styles.card}>
-              <ImageBackground
-                source={require("@/assets/images/bukitgasingcard.png")}
-                style={{ width: 310, height: 165 }}
-              >
-                <View style={styles.cardtext}>
-                  <View>
-                    <Text style={styles.locationtitle}>Bukit Gasing Loop</Text>
-                  </View>
-                  <View>
-                    <Text style={styles.locationdetail}>
-                      Bukit Gasing . 3.9 km
-                    </Text>
-                  </View>
-                </View>
-              </ImageBackground>
-            </View>
-          </View>
-        </ImageBackground>
+          </ImageBackground>
+        </View>
       </View>
     </ScrollView>
   );
@@ -173,6 +202,8 @@ const styles = StyleSheet.create({
 
   routesContainer: {
     paddingVertical: 20,
+    flex: 1,
+    flexGrow: 1,
   },
 
   locationtitle: {

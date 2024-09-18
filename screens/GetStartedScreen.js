@@ -14,11 +14,13 @@ import BackIcon from "@/components/BackIcon";
 import { CollapsibleContainer } from "@/components/CollapsibleContainer";
 import Accordion from "@/components/Accordion";
 import AccordionList from "@/components/AccordionList";
+import { StatusBar } from "expo-status-bar";
 
 const GetStartedScreen = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ height: "100%" }}>
+        <StatusBar hidden={true} />
         <ImageBackground
           source={require("@/assets/images/background.png")}
           resizeMode="cover"
@@ -100,7 +102,9 @@ const GetStartedScreen = () => {
               <CollapsibleContainer></CollapsibleContainer>
             </View> */}
 
-          <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <View
+            style={{ justifyContent: "center", alignItems: "center", flex: 1 }}
+          >
             <AccordionList />
           </View>
           {/* </ImageBackground> */}
