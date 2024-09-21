@@ -25,6 +25,7 @@ import LibraryIcon from "@/components/LibraryIcon";
 import CustomizeIcon from "@/components/CustomizeIcon";
 import GeneralOverviewScreen from "./GeneralOverviewScreen";
 import WhatToDoScreen from "./WhatToDoScreen";
+import RouteAnalysisScreen from "./RouteAnalysisScreen";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -340,6 +341,11 @@ const MainScreens = () => {
       <MainStacks.Screen
         name="WhatToDo"
         component={WhatToDoScreen}
+        options={{ animation: "fade_from_bottom", headerShown: false }}
+      />
+      <MainStacks.Screen
+        name="RouteAnalysis"
+        component={RouteAnalysisScreen}
         options={{ animation: "fade_from_bottom", headerShown: false }}
       />
       <MainStacks.Screen
