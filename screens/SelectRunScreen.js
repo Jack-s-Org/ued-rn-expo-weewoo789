@@ -33,15 +33,6 @@ const SelectRunScreen = () => {
             height: "100%",
           }}
         >
-          {/* <ImageBackground
-            source={require("@/assets/images/topframe.png")}
-            style={{
-              width: 390,
-              height: 248,
-              position: "absolute",
-              top: 0,
-            }}
-          > */}
           <View
             style={{
               flexDirection: "row",
@@ -63,22 +54,7 @@ const SelectRunScreen = () => {
                 }}
               />
             </View>
-            <View
-            // style={{
-            //   // flexDirection: "row",
-            //   // alignSelf: "center",
-            //   // alignItems: "baseline",
-
-            //   // marginBottom: 6,
-            //   // marginTop: 26,
-
-            //   justifyContent: "center",
-            //   position: "absolute",
-            //   // top: 0,
-            //   paddingHorizontal: 20,
-            // }}
-            >
-              {/* <BackIcon></BackIcon> */}
+            <View>
               <Text
                 style={{
                   fontFamily: "TransformaMixSemiBold",
@@ -130,18 +106,10 @@ const SelectRunScreen = () => {
                     </View>
                   </View>
                 </ImageBackground>
-
-                {/* <ImageBackground
-                source={require("@/assets/images/temporun.png")}
-                style={{ width: 222, height: 145 }}
-              ></ImageBackground> */}
               </View>
               <View
                 style={{
                   paddingRight: 20,
-                  // marginTop: -300,
-                  //   position: "absolute",
-                  // marginTop: -300,
                   flexDirection: "column",
                   rowGap: 24,
                   right: 0,
@@ -182,11 +150,6 @@ const SelectRunScreen = () => {
                     </View>
                   </ImageBackground>
                 </Pressable>
-
-                {/* <ImageBackground
-                source={require("@/assets/images/beachrun.png")}
-                style={{ width: 114, height: 145 }}
-              ></ImageBackground> */}
               </View>
             </View>
 

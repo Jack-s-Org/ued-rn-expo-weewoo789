@@ -24,17 +24,6 @@ const RootNavigator = () => {
         <Stack.Screen name="OnboardingScreen3" component={OnboardingScreen3} />
         <Stack.Screen name="SignIn" component={SignInScreen} />
         <Stack.Screen name="Main" component={MainScreens} />
-
-        {/* <Stack.Screen name="NewHome" component={NewHomeScreen} /> */}
-        {/* <Stack.Screen name="SelectRun" component={SelectRunScreen} /> */}
-        {/* <Stack.Screen name="GetStarted" component={GetStartedScreen} /> */}
-        {/* <Stack.Screen name="RouteLibrary" component={RouteLibraryScreen} /> */}
-        {/* <Stack.Screen
-          name="GeneralOverview"
-          component={GeneralOverviewScreen}
-        /> */}
-        {/* <Stack.Screen name="WhatToDo" component={WhatToDoScreen} /> */}
-        {/* <Stack.Screen name="RouteAnalysis" component={RouteAnalysisScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

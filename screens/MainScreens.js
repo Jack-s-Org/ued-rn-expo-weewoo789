@@ -32,58 +32,8 @@ const OnboardStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const LibraryStack = createNativeStackNavigator();
 
-const Empty = () => null;
-
-// const getCommon = (Stack) => {
-//   return [
-//     <Stack.Screen
-//       key="selectrun"
-//       name="SelectRun"
-//       component={SelectRunScreen}
-//     />,
-//     <Stack.Screen
-//       key="getstarted"
-//       name="GetStarted"
-//       component={GetStartedScreen}
-//     />,
-//   ];
-// };
-
-// const Tab1 = () => {
-//   const MainStack = createNativeStackNavigator();
-//   const common = getCommon(Tab);
-
-//   return (
-//     <Tab.Navigator>
-//       <Tab.Screen name="selectrun" component={SelectRunScreen} />
-//       {common}
-//     </Tab.Navigator>
-//   );
-// };
-
-// const Tab2 = () => {
-//   const MainStack = createNativeStackNavigator();
-//   const common = getCommon(Tab);
-
-//   return (
-//     <Tab.Navigator>
-//       <Tab.Screen name="getstarted" component={GetStartedScreen} />
-//       {common}
-//     </Tab.Navigator>
-//   );
-// };
-
 const MainTabs = ({ navigation }) => {
-  // const [unreadCount, setUnreadCount] = useState(3);
   return (
-    // <AppDrawer navigation={navigation}>
-    // {/* <SafeAreaView
-    //   style={{
-    //     height: "100%",
-    //     flex: 1,
-    //     backgroundColor: "red",
-    //   }}
-    // > */}
     <View style={{ flex: 1, overflow: "hidden", backgroundColor: "#020B08" }}>
       <Tab.Navigator
         screenOptions={{
@@ -113,16 +63,6 @@ const MainTabs = ({ navigation }) => {
           },
         }}
       >
-        {/* <Tab.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{
-              tabBarIcon: ({ color, size }) => (
-                <Ionicons name="home" size={size} color={color} />
-              ),
-              tabBarLabel: "Home",
-            }}
-          /> */}
         <Tab.Screen
           name="Home"
           component={NewHomeScreen}

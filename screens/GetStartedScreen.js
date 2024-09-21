@@ -84,34 +84,6 @@ const GetStartedScreen = () => {
             </View>
           </ImageBackground>
 
-          {/* <ImageBackground
-            source={require("@/assets/images/selectioncontainer.png")}
-            style={{
-              width: 350,
-              height: 268,
-              alignSelf: "center",
-              marginTop: 14,
-            }}
-          >
-            <View style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
-              <View>
-                <Text
-                  style={{
-                    fontFamily: "TransformaMixSemiBold",
-                    fontSize: 20,
-                    backgroundColor: "transparent",
-                    color: "white",
-                  }}
-                >
-                  Where will you run today?
-                </Text>
-              </View>
-            </View> */}
-
-          {/* <View style={{ backgroundColor: "red" }}>
-              <CollapsibleContainer></CollapsibleContainer>
-            </View> */}
-
           <View
             style={{ justifyContent: "center", alignItems: "center", flex: 1 }}
           >

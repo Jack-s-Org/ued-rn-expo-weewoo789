@@ -40,13 +40,8 @@ const SignInScreen = ({ navigation }) => {
               fontSize: 48,
               fontFamily: "TransformaMixSemiBold",
               color: "white",
-              // display: "flex",
-              // flex: 1,
-              // alignItems: "center",
-              // justifyContent: "center",
-              // position: "absolute",
+
               textAlign: "center",
-              // textAlignVertical: "center",
             }}
           >
             Just Run
@@ -56,29 +51,9 @@ const SignInScreen = ({ navigation }) => {
             <View>
               <Image
                 source={require("@/assets/images/loginframe.png")}
-                // style={{
-                //   alignItems: "center",
-                //   justifyContent: "center",
-                //   display: "block",
-                //   alignSelf: "center",
-                //   marginTop: 50,
-                // }}
                 style={[styles.loginframe]}
               />
-              {/* <Button
-                title="Sign In"
-                // style={{
-                //   width: 78,
-                //   height: 38,
-                //   backgroundColor: "#1E1E1E",
-                //   fontFamily: "TransformaSansMedium",
-                //   fontSize: 12,
-                // }}
-                style={styles.button}
-                onPress={() => {
-                  navigation.replace("Main", { screen: "Home" });
-                }}
-              /> */}
+
               <View style={{ marginTop: -200, zIndex: 1 }}>
                 {/* <LinearGradient colors={["#00DFA2", "#1E1E1E"]}> */}
                 <View>
@@ -251,14 +226,6 @@ const SignInScreen = ({ navigation }) => {
             </View>
           </View>
         </ImageBackground>
-
-        {/* <Text>Sign In Screen</Text>
-      <Button
-        title="Sign In"
-        onPress={() => {
-          navigation.replace("Main", { screen: "Home" });
-        }}
-      /> */}
       </SafeAreaView>
     </SafeAreaProvider>
   );

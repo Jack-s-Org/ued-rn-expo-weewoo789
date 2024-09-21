@@ -97,16 +97,6 @@ const GeneralOverviewScreen = () => {
     }
   };
 
-  // const weatherCollapse = () => {
-  //   if (weatherExpanded) {
-  //     setWeatherExpanded(false);
-  //   }
-  // };
-
-  // const weatherAnim = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
-  // const injuryAnim = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
-  // const mosquitoAnim = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
-
   const weatherAnimX = useRef(new Animated.Value(0)).current;
   const weatherAnimY = useRef(new Animated.Value(0)).current;
 
@@ -261,14 +251,7 @@ const GeneralOverviewScreen = () => {
                   top: -160,
                 }}
               >
-                <View
-                // style={{
-                //   flexDirection: "row",
-                //   columnGap: 100,
-                //   backgroundColor: "blue",
-                //   // alignItems: "center",
-                // }}
-                >
+                <View>
                   <View>
                     <Pressable
                       onPress={() => {
@@ -343,10 +326,6 @@ const GeneralOverviewScreen = () => {
                     </Pressable>
                   </View>
                 </View>
-
-                {/* <View style={{ zIndex: 20 }}>
-                  <WeatherIcon />
-                </View> */}
 
                 <Pressable onPress={unevenVisibility}>
                   <View

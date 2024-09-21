@@ -79,10 +79,6 @@ const GeneralOverviewScreen = () => {
             </View>
           </ImageBackground>
 
-          {/* <View style={{ backgroundColor: "red" }}>
-            <OverviewCarousel></OverviewCarousel>
-          </View> */}
-
           <View style={{ paddingTop: 4 }}>
             <SwipeableCarouselParallaxHorizontal></SwipeableCarouselParallaxHorizontal>
           </View>

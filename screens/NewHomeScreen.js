@@ -74,14 +74,6 @@ const NewHomeScreen = () => {
                 >
                   Hello, Yi Wen!
                 </Text>
-                {/* <Image
-                  source={require("@/assets/images/profileicon.png")}
-                  style={{
-                    justifyContent: "center",
-                    alignContent: "center",
-                    marginLeft: 48,
-                  }}
-                /> */}
                 <ProfileIcon
                   style={{
                     justifyContent: "center",
@@ -279,29 +271,8 @@ const NewHomeScreen = () => {
               </ScrollView>
             </View>
 
-            {/* <View
-            style={{ padding: 20, paddingTop: 0, flex: 1, marginTop: -110 }}
-          >
-            <Text
-              style={{
-                fontFamily: "TransformaMixSemiBold",
-                fontSize: 20,
-                backgroundColor: "transparent",
-                color: "white",
-              }}
-            >
-              Previous Run
-            </Text>
-          </View> */}
-
             <View
               style={{
-                // padding: 20,
-                // paddingTop: 0,
-                // paddingBottom: 0,
-                // flexGrow: 1,
-                // backgroundColor: "blue",
-                // marginTop: 20,
                 paddingHorizontal: 20,
                 paddingTop: 30,
                 paddingBottom: 0,

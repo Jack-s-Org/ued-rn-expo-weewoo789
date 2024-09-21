@@ -40,24 +40,6 @@ const OnboardingScreen2 = () => {
               <OnboardBackButton2 />
             </View>
           </Pressable>
-          {/* <Text style={textStyles.container}>Onboarding Screen</Text> */}
-          {/* <VideoPlayer></VideoPlayer> */}
-
-          {/* <View style={circleStyles.container}>
-                <Image
-                  source={require("@/assets/images/shoebw.png")}
-                  style={{
-                    height: "56%",
-                    backgroundBlendMode: "luminosity",
-                    color: "rgba(255, 255, 255, 0.5)",
-                  }}
-                />
-              </View>
-              <Image
-                source={require("@/assets/images/stroke.gif")}
-                style={StyleSheet.absoluteFill}
-                // resizeMode="stretch"
-              /> */}
         </ImageBackground>
       </SafeAreaView>
     </SafeAreaProvider>
