@@ -29,7 +29,7 @@ import InjuryIcon from "@/components/InjuryIcon";
 import MosquitoIcon from "@/components/MosquitoIcon";
 import WeatherExpanded from "@/components/WeatherExpanded";
 import InjuryExpanded from "@/components/InjuryExpanded";
-import MosquitoExpanded from "./MosquitoExpanded";
+import MosquitoExpanded from "../components/MosquitoExpanded";
 import { useNavigation } from "@react-navigation/native";
 
 const GeneralOverviewScreen = () => {

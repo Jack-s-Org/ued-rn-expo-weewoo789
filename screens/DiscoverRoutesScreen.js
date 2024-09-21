@@ -250,23 +250,34 @@ const DiscoverRoutesScreen = () => {
                 paddingVertical: 14,
               }}
             >
-              <View style={styles.card}>
-                <ImageBackground
-                  source={require("@/assets/images/bukitkiarapeakcard.png")}
-                  style={{ width: 350, height: 165 }}
-                >
-                  <View style={styles.cardtext}>
-                    <View>
-                      <Text style={styles.locationtitle}>Bukit Kiara Peak</Text>
+              <Pressable
+                onPress={() => {
+                  navigation.navigate("Library", {
+                    screen: "GeneralOverview",
+                  });
+                  // Fallback to navigate if goBack is not possible
+                }}
+              >
+                <View style={styles.card}>
+                  <ImageBackground
+                    source={require("@/assets/images/bukitkiarapeakcard.png")}
+                    style={{ width: 350, height: 165 }}
+                  >
+                    <View style={styles.cardtext}>
+                      <View>
+                        <Text style={styles.locationtitle}>
+                          Bukit Kiara Peak
+                        </Text>
+                      </View>
+                      <View>
+                        <Text style={styles.locationdetail}>
+                          Bukit Kiara Forest Reserve . 5.6 km
+                        </Text>
+                      </View>
                     </View>
-                    <View>
-                      <Text style={styles.locationdetail}>
-                        Bukit Kiara Forest Reserve . 5.6 km
-                      </Text>
-                    </View>
-                  </View>
-                </ImageBackground>
-              </View>
+                  </ImageBackground>
+                </View>
+              </Pressable>
 
               <View style={styles.card}>
                 <ImageBackground

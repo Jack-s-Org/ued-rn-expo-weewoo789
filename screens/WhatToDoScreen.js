@@ -85,7 +85,12 @@ const RouteLibraryScreen = () => {
               </View>
 
               <View>
-                <NextIcon></NextIcon>
+                <NextIcon
+                  onPress={() => {
+                    navigation.navigate("StartRun");
+                    // Fallback to navigate if goBack is not possible
+                  }}
+                ></NextIcon>
               </View>
             </View>
           </ImageBackground>

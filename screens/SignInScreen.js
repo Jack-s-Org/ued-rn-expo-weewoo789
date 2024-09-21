@@ -14,6 +14,9 @@ import { StackActions } from "@react-navigation/native";
 import { useState } from "react";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import GoogleIcon from "@/components/GoogleIcon";
+import AppleIcon from "@/components/AppleIcon";
+import FacebookIcon from "@/components/FacebookIcon";
 
 const SignInScreen = ({ navigation }) => {
   const [username, onChangeUsername] = React.useState("");
@@ -130,42 +133,61 @@ const SignInScreen = ({ navigation }) => {
                 style={{
                   flexDirection: "row",
                   alignSelf: "center",
-                  marginTop: -4,
+                  marginTop: 10,
+                  marginBottom: 24,
                   columnGap: 20,
                 }}
               >
-                <Pressable style={styles.button}>
-                  <Text
+                <Pressable>
+                  <ImageBackground
+                    source={require("@/assets/images/buttonframe.png")}
                     style={{
-                      backgroundColor: "transparent",
-                      fontSize: 12,
-                      fontFamily: "TransformaSansMedium",
-                      color: "white",
+                      width: 78,
+                      height: 38,
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
-                    Sign Up
-                  </Text>
+                    <Text
+                      style={{
+                        backgroundColor: "transparent",
+                        fontSize: 12,
+                        fontFamily: "TransformaSansMedium",
+                        color: "white",
+                      }}
+                    >
+                      Sign Up
+                    </Text>
+                  </ImageBackground>
                 </Pressable>
 
-                <Pressable style={styles.button}>
-                  <Text
+                <Pressable>
+                  <ImageBackground
+                    source={require("@/assets/images/buttonframe.png")}
                     style={{
-                      backgroundColor: "transparent",
-                      fontSize: 12,
-                      fontFamily: "TransformaSansMedium",
-                      color: "white",
-                    }}
-                    onPress={() => {
-                      navigation.replace("Main", { screen: "NewHome" });
-                      // navigation.dispatch(
-                      //   StackActions.replace("SignIn", {
-                      //     screen: "Home",
-                      //   })
-                      // );
+                      width: 78,
+                      height: 38,
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
-                    Log In
-                  </Text>
+                    <Text
+                      style={{
+                        backgroundColor: "transparent",
+                        fontSize: 12,
+                        fontFamily: "TransformaSansMedium",
+                        color: "white",
+                      }}
+                      onPress={() => {
+                        navigation.navigate("Main", {
+                          screen: "Home",
+                        });
+                        // Fallback to navigate if goBack is not possible
+                      }}
+                    >
+                      Log In
+                    </Text>
+                  </ImageBackground>
                 </Pressable>
               </View>
             </View>
@@ -222,9 +244,9 @@ const SignInScreen = ({ navigation }) => {
                   marginTop: 10,
                 }}
               >
-                <Image source={require("@/assets/images/googleicon.png")} />
-                <Image source={require("@/assets/images/appleicon.png")} />
-                <Image source={require("@/assets/images/facebookicon.png")} />
+                <GoogleIcon />
+                <AppleIcon />
+                <FacebookIcon />
               </View>
             </View>
           </View>

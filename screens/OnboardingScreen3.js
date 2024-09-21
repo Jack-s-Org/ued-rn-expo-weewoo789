@@ -11,15 +11,17 @@ import {
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import VideoPlayer from "@/components/VideoPlayer";
 import OnboardButton1 from "@/components/OnboardButton1";
+import OnboardButton3 from "@/components/OnboardButton3";
 import { useNavigation } from "@react-navigation/native";
+import OnboardBackButton2 from "@/components/OnboardBackButton2";
 
-const OnboardingScreen = () => {
+const OnboardingScreen2 = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ height: "100%" }}>
         <ImageBackground
-          source={require("@/assets/images/onboardingpage1.png")}
+          source={require("@/assets/images/onboardingpage3.png")}
           resizeMode="cover"
           style={{
             flex: 1,
@@ -27,33 +29,39 @@ const OnboardingScreen = () => {
             height: "100%",
           }}
         >
+          <Pressable onPress={() => navigation.navigate("SignIn")}>
+            <View style={{ paddingTop: 710, left: 278 }}>
+              <OnboardButton3 />
+            </View>
+          </Pressable>
+
           <Pressable onPress={() => navigation.navigate("OnboardingScreen2")}>
-            <View style={{ marginTop: 704, left: 278 }}>
-              <OnboardButton1 />
+            <View style={{ marginTop: -228, left: 54 }}>
+              <OnboardBackButton2 />
             </View>
           </Pressable>
           {/* <Text style={textStyles.container}>Onboarding Screen</Text> */}
           {/* <VideoPlayer></VideoPlayer> */}
 
           {/* <View style={circleStyles.container}>
-            <Image
-              source={require("@/assets/images/shoebw.png")}
-              style={{
-                height: "56%",
-                backgroundBlendMode: "luminosity",
-                color: "rgba(255, 255, 255, 0.5)",
-              }}
-            />
-          </View>
-          <Image
-            source={require("@/assets/images/stroke.gif")}
-            style={StyleSheet.absoluteFill}
-            // resizeMode="stretch"
-          /> */}
+                <Image
+                  source={require("@/assets/images/shoebw.png")}
+                  style={{
+                    height: "56%",
+                    backgroundBlendMode: "luminosity",
+                    color: "rgba(255, 255, 255, 0.5)",
+                  }}
+                />
+              </View>
+              <Image
+                source={require("@/assets/images/stroke.gif")}
+                style={StyleSheet.absoluteFill}
+                // resizeMode="stretch"
+              /> */}
         </ImageBackground>
       </SafeAreaView>
     </SafeAreaProvider>
   );
 };
 
-export default OnboardingScreen;
+export default OnboardingScreen2;

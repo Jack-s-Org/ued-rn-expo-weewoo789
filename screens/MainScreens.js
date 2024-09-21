@@ -1,15 +1,10 @@
 import { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import HomeScreen from "./HomeScreen";
-import NotificationsScreen from "./NotificationsScreen";
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
-import MeScreen from "./MeScreen";
-import DiscoverScreen from "./DiscoverScreen";
-import AppDrawer from "./AppDrawer";
-import SettingsScreen from "./SettingsScreen";
-import AddScreen from "./AddScreen";
+
 import NewHomeScreen from "./NewHomeScreen";
 import SignInScreen from "./SignInScreen";
 import SelectRunScreen from "./SelectRunScreen";
@@ -26,10 +21,14 @@ import CustomizeIcon from "@/components/CustomizeIcon";
 import GeneralOverviewScreen from "./GeneralOverviewScreen";
 import WhatToDoScreen from "./WhatToDoScreen";
 import RouteAnalysisScreen from "./RouteAnalysisScreen";
+import StartRunScreen from "./StartRunScreen";
+import OnboardingScreen from "./OnboardingScreen";
+import OnboardingScreen2 from "./OnboardingScreen2";
 
 const MainStacks = createNativeStackNavigator();
 // const SecondaryStacks = createNativeStackNavigator();
 const RunStack = createNativeStackNavigator();
+const OnboardStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const LibraryStack = createNativeStackNavigator();
 
@@ -172,38 +171,6 @@ const MainTabs = ({ navigation }) => {
           }}
         />
 
-        {/* <Tab.Screen
-          name="Run"
-          component={Tab1}
-          options={{
-            tabBarIcon: ({ color, size, focused }) => (
-              // <Ionicons name="home" size={size} color={color} />
-              <RunIcon
-                name="run"
-                size={size}
-                color={focused ? "#00DFA2" : "#FFFFFF"}
-              ></RunIcon>
-            ),
-            tabBarLabel: "Run",
-          }}
-        /> */}
-
-        {/* <Tab.Screen
-          name="Run"
-          component={Tab2}
-          options={{
-            tabBarIcon: ({ color, size, focused }) => (
-              // <Ionicons name="home" size={size} color={color} />
-              <RunIcon
-                name="run"
-                size={size}
-                color={focused ? "#00DFA2" : "#FFFFFF"}
-              ></RunIcon>
-            ),
-            tabBarLabel: "Run",
-          }}
-        /> */}
-
         <Tab.Screen
           name="Library"
           component={LibraryStackScreen}
@@ -235,66 +202,8 @@ const MainTabs = ({ navigation }) => {
             tabBarLabel: "Customize",
           }}
         />
-
-        {/* <Tab.Screen
-            name="Discover"
-            component={DiscoverScreen}
-            options={{
-              tabBarIcon: ({ color, size }) => (
-                <Ionicons name="search" size={size} color={color} />
-              ),
-              tabBarLabel: "Discover",
-            }}
-          /> */}
-
-        {/* <Tab.Screen
-        name="AddTab"
-        component={Empty} // this is a workaround to show a full screen when this tab is pressed
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="add" size={36} color={color} />
-          ),
-          tabBarLabel: () => null,
-        }}
-        listeners={{
-          tabPress: (e) => {
-            e.preventDefault(); // stop default navigation
-            navigation.navigate("Add"); // manually navigate to the stack screen outside of the tab navigators
-          },
-        }}
-      /> */}
-
-        {/* <Tab.Screen
-        name="Inbox"
-        component={NotificationsScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="chatbox" size={size} color={color} />
-          ),
-          tabBarLabel: "Inbox",
-          // tabBarBadge: unreadCount,
-        }}
-        // listeners={{
-        //   tabPress: () => {
-        //     setUnreadCount(null);
-        //   },
-        // }}
-      /> */}
-
-        {/* <Tab.Screen
-        name="SettingsDrawer"
-        component={MeScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person" size={size} color={color} />
-          ),
-          tabBarLabel: "Me",
-        }}
-      /> */}
       </Tab.Navigator>
     </View>
-    // {/* </SafeAreaView> */}
-    // </AppDrawer>
   );
 };
 
@@ -306,17 +215,6 @@ const MainScreens = () => {
         component={MainTabs}
         options={{ headerShown: false }}
       />
-      {/* <MainStacks.Screen
-        name="Add"
-        component={AddScreen}
-        options={{ animation: "fade_from_bottom" }}
-      />
-      <MainStacks.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{ animation: "fade_from_bottom" }}
-      />   */}
-
       <MainStacks.Screen
         name="NewHome"
         component={NewHomeScreen}
@@ -342,21 +240,11 @@ const MainScreens = () => {
         component={DiscoverRoutesScreen}
         options={{ animation: "fade_from_bottom", headerShown: false }}
       />
-      {/* <MainStacks.Screen
-        name="GeneralOverview"
-        component={LibraryStackScreen}
+      <MainStacks.Screen
+        name="StartRun"
+        component={StartRunScreen}
         options={{ animation: "fade_from_bottom", headerShown: false }}
-      /> */}
-      {/* <MainStacks.Screen
-        name="WhatToDo"
-        component={WhatToDoScreen}
-        options={{ animation: "fade_from_bottom", headerShown: false }}
-      /> */}
-      {/* <MainStacks.Screen
-        name="RouteAnalysis"
-        component={LibraryStackScreen}
-        options={{ animation: "fade_from_bottom", headerShown: false }}
-      /> */}
+      />
 
       <MainStacks.Screen
         name="SignIn"

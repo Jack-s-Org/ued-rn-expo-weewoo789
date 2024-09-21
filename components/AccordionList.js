@@ -60,6 +60,7 @@ export default function AccordionList() {
               button={<SavedRoutesButton />}
               // onToggle={(heightChange) => updateContainerHeight(heightChange)}
               learnmoreBackground={require("@/assets/images/savedroutesbutton.png")}
+              targetScreen="Library"
             />
             <Accordion
               title="Discover routes"
@@ -69,6 +70,7 @@ export default function AccordionList() {
               button={<DiscoverRoutesButton />}
               // onToggle={(heightChange) => updateContainerHeight(heightChange)}
               learnmoreBackground={require("@/assets/images/discoverroutesbutton.png")}
+              targetScreen="Discover"
             />
             <Accordion
               title="Customize route"

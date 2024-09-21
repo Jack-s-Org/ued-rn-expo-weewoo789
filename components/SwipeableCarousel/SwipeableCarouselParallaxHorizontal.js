@@ -115,7 +115,7 @@ function SwipeableCarouselParallaxHorizontal() {
                     width: 242,
                     height: 227,
                     alignSelf: "center",
-                    opacity: getOpacity(itemIndex), // Apply the calculated opacity
+                    // opacity: getOpacity(itemIndex), // Apply the calculated opacity
                   }}
                 >
                   <Slide />
@@ -147,6 +147,7 @@ function SwipeableCarouselParallaxHorizontal() {
             fontFamily: "TransformaSansSemiBold",
             fontSize: 24,
           }}
+          defaultIndex={1}
         >
           {locationtitle[index]}
         </Text>
@@ -168,6 +169,7 @@ function SwipeableCarouselParallaxHorizontal() {
             fontFamily: "TransformaSansMedium",
             fontSize: 14,
           }}
+          defaultIndex={1}
         >
           {locationdetail[index]}
         </Text>
@@ -189,7 +191,9 @@ function SwipeableCarouselParallaxHorizontal() {
               style={{ width: 170, height: 68 }}
             >
               <Text style={styles.infotitle}>Route length</Text>
-              <Text style={styles.infodetail}>{routelength[index]}</Text>
+              <Text style={styles.infodetail} defaultIndex={1}>
+                {routelength[index]}
+              </Text>
             </ImageBackground>
           </View>
 
@@ -209,7 +213,9 @@ function SwipeableCarouselParallaxHorizontal() {
               style={{ width: 170, height: 68 }}
             >
               <Text style={styles.infotitle}>Weather</Text>
-              <Text style={styles.infodetail}>{weather[index]}</Text>
+              <Text style={styles.infodetail} defaultIndex={1}>
+                {weather[index]}
+              </Text>
             </ImageBackground>
           </View>
         </View>
@@ -221,7 +227,9 @@ function SwipeableCarouselParallaxHorizontal() {
               style={{ width: 170, height: 68 }}
             >
               <Text style={styles.infotitle}>Difficulty level</Text>
-              <Text style={styles.infodetail}>{difficultylevel[index]}</Text>
+              <Text style={styles.infodetail} defaultIndex={1}>
+                {difficultylevel[index]}
+              </Text>
             </ImageBackground>
           </View>
 
@@ -231,7 +239,9 @@ function SwipeableCarouselParallaxHorizontal() {
               style={{ width: 170, height: 68 }}
             >
               <Text style={styles.infotitle}>Elevation gain</Text>
-              <Text style={styles.infodetail}>{elevation[index]}</Text>
+              <Text style={styles.infodetail} defaultIndex={1}>
+                {elevation[index]}
+              </Text>
             </ImageBackground>
           </View>
 
@@ -249,7 +259,9 @@ function SwipeableCarouselParallaxHorizontal() {
                 }}
               >
                 <View>
-                  <Text style={styles.infodetail}>{ratings[index]}</Text>
+                  <Text style={styles.infodetail} defaultIndex={1}>
+                    {ratings[index]}
+                  </Text>
                 </View>
                 <View style={{ top: 16 }}>
                   <RatingsIcon />

@@ -24,6 +24,7 @@ export default function Accordion({
   expandedImage,
   onToggle,
   learnmoreBackground,
+  targetScreen,
 }) {
   // Set default value for details
   const [opened, setOpened] = useState(false);
@@ -79,10 +80,7 @@ export default function Accordion({
             <Text style={styles.details}>{details}</Text>
             <Pressable
               onPress={() => {
-                navigation.navigate("Library", {
-                  screen: "RouteLibrary",
-                });
-                // Fallback to navigate if goBack is not possible
+                navigation.navigate(targetScreen); // Use the prop for navigation
               }}
             >
               <View style={{ paddingTop: 10 }}>
