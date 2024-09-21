@@ -23,211 +23,211 @@ const SignInScreen = ({ navigation }) => {
   const [password, onChangePassword] = React.useState("");
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ height: "100%" }}>
-        <ImageBackground
-          source={require("@/assets/images/background.png")}
-          resizeMode="cover"
+    // <SafeAreaProvider>
+    <View style={{ height: "100%" }}>
+      <ImageBackground
+        source={require("@/assets/images/background.png")}
+        resizeMode="cover"
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          height: "100%",
+        }}
+      >
+        <Text
           style={{
-            flex: 1,
-            justifyContent: "center",
-            height: "100%",
+            backgroundColor: "transparent",
+            fontSize: 48,
+            fontFamily: "TransformaMixSemiBold",
+            color: "white",
+
+            textAlign: "center",
           }}
         >
+          Just Run
+        </Text>
+
+        <View>
+          <View>
+            <Image
+              source={require("@/assets/images/loginframe.png")}
+              style={[styles.loginframe]}
+            />
+
+            <View style={{ marginTop: -200, zIndex: 1 }}>
+              {/* <LinearGradient colors={["#00DFA2", "#1E1E1E"]}> */}
+              <View>
+                <ImageBackground
+                  source={require("@/assets/images/textinput.png")}
+                  resizeMode="contain"
+                  style={{
+                    width: 262,
+                    height: 50,
+                    justifyContent: "center",
+                    // alignItems: "center",
+                    alignSelf: "center",
+                    marginTop: 18,
+                  }}
+                >
+                  <TextInput
+                    style={styles.input}
+                    onChangeText={onChangeUsername}
+                    value={username}
+                    placeholder="Username"
+                    placeholderTextColor={"white"}
+                    keyboardType="default"
+                  />
+                </ImageBackground>
+              </View>
+              {/* </LinearGradient> */}
+              <View>
+                <ImageBackground
+                  source={require("@/assets/images/textinput.png")}
+                  resizeMode="contain"
+                  style={{
+                    width: 262,
+                    height: 50,
+                    justifyContent: "center",
+                    // alignItems: "center",
+                    alignSelf: "center",
+                    marginTop: 18,
+                  }}
+                >
+                  <TextInput
+                    style={styles.input}
+                    onChangeText={onChangePassword}
+                    value={password}
+                    placeholder="Password"
+                    placeholderTextColor={"white"}
+                    keyboardType="default"
+                  />
+                </ImageBackground>
+              </View>
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignSelf: "center",
+                marginTop: 10,
+                marginBottom: 24,
+                columnGap: 20,
+              }}
+            >
+              <Pressable>
+                <ImageBackground
+                  source={require("@/assets/images/buttonframe.png")}
+                  style={{
+                    width: 78,
+                    height: 38,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Text
+                    style={{
+                      backgroundColor: "transparent",
+                      fontSize: 12,
+                      fontFamily: "TransformaSansMedium",
+                      color: "white",
+                    }}
+                  >
+                    Sign Up
+                  </Text>
+                </ImageBackground>
+              </Pressable>
+
+              <Pressable>
+                <ImageBackground
+                  source={require("@/assets/images/buttonframe.png")}
+                  style={{
+                    width: 78,
+                    height: 38,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Text
+                    style={{
+                      backgroundColor: "transparent",
+                      fontSize: 12,
+                      fontFamily: "TransformaSansMedium",
+                      color: "white",
+                    }}
+                    onPress={() => {
+                      navigation.navigate("Main", {
+                        screen: "Home",
+                      });
+                      // Fallback to navigate if goBack is not possible
+                    }}
+                  >
+                    Log In
+                  </Text>
+                </ImageBackground>
+              </Pressable>
+            </View>
+          </View>
           <Text
             style={{
               backgroundColor: "transparent",
-              fontSize: 48,
-              fontFamily: "TransformaMixSemiBold",
-              color: "white",
-
+              fontSize: 10,
+              fontFamily: "TransformaSansSemiBold",
+              color: "#00DFA2",
               textAlign: "center",
+              // marginTop: 4,
             }}
           >
-            Just Run
+            Forgot Password?
           </Text>
 
+          <Text
+            style={{
+              backgroundColor: "transparent",
+              fontSize: 14,
+              fontFamily: "TransformaSansBold",
+              color: "white",
+              textAlign: "center",
+              marginTop: 24,
+            }}
+          >
+            OR
+          </Text>
           <View>
-            <View>
-              <Image
-                source={require("@/assets/images/loginframe.png")}
-                style={[styles.loginframe]}
-              />
+            <Image
+              source={require("@/assets/images/loginoptionsframe.png")}
+              style={[styles.loginoptionsframe]}
+            />
 
-              <View style={{ marginTop: -200, zIndex: 1 }}>
-                {/* <LinearGradient colors={["#00DFA2", "#1E1E1E"]}> */}
-                <View>
-                  <ImageBackground
-                    source={require("@/assets/images/textinput.png")}
-                    resizeMode="contain"
-                    style={{
-                      width: 262,
-                      height: 50,
-                      justifyContent: "center",
-                      // alignItems: "center",
-                      alignSelf: "center",
-                      marginTop: 18,
-                    }}
-                  >
-                    <TextInput
-                      style={styles.input}
-                      onChangeText={onChangeUsername}
-                      value={username}
-                      placeholder="Username"
-                      placeholderTextColor={"white"}
-                      keyboardType="default"
-                    />
-                  </ImageBackground>
-                </View>
-                {/* </LinearGradient> */}
-                <View>
-                  <ImageBackground
-                    source={require("@/assets/images/textinput.png")}
-                    resizeMode="contain"
-                    style={{
-                      width: 262,
-                      height: 50,
-                      justifyContent: "center",
-                      // alignItems: "center",
-                      alignSelf: "center",
-                      marginTop: 18,
-                    }}
-                  >
-                    <TextInput
-                      style={styles.input}
-                      onChangeText={onChangePassword}
-                      value={password}
-                      placeholder="Password"
-                      placeholderTextColor={"white"}
-                      keyboardType="default"
-                    />
-                  </ImageBackground>
-                </View>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignSelf: "center",
-                  marginTop: 10,
-                  marginBottom: 24,
-                  columnGap: 20,
-                }}
-              >
-                <Pressable>
-                  <ImageBackground
-                    source={require("@/assets/images/buttonframe.png")}
-                    style={{
-                      width: 78,
-                      height: 38,
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Text
-                      style={{
-                        backgroundColor: "transparent",
-                        fontSize: 12,
-                        fontFamily: "TransformaSansMedium",
-                        color: "white",
-                      }}
-                    >
-                      Sign Up
-                    </Text>
-                  </ImageBackground>
-                </Pressable>
-
-                <Pressable>
-                  <ImageBackground
-                    source={require("@/assets/images/buttonframe.png")}
-                    style={{
-                      width: 78,
-                      height: 38,
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Text
-                      style={{
-                        backgroundColor: "transparent",
-                        fontSize: 12,
-                        fontFamily: "TransformaSansMedium",
-                        color: "white",
-                      }}
-                      onPress={() => {
-                        navigation.navigate("Main", {
-                          screen: "Home",
-                        });
-                        // Fallback to navigate if goBack is not possible
-                      }}
-                    >
-                      Log In
-                    </Text>
-                  </ImageBackground>
-                </Pressable>
-              </View>
-            </View>
             <Text
               style={{
                 backgroundColor: "transparent",
-                fontSize: 10,
+                fontSize: 12,
                 fontFamily: "TransformaSansSemiBold",
-                color: "#00DFA2",
-                textAlign: "center",
-                // marginTop: 4,
-              }}
-            >
-              Forgot Password?
-            </Text>
-
-            <Text
-              style={{
-                backgroundColor: "transparent",
-                fontSize: 14,
-                fontFamily: "TransformaSansBold",
                 color: "white",
                 textAlign: "center",
-                marginTop: 24,
+                marginTop: -90,
+                // position: "absolute",
+                zIndex: 1,
               }}
             >
-              OR
+              Log In/Sign Up using:
             </Text>
-            <View>
-              <Image
-                source={require("@/assets/images/loginoptionsframe.png")}
-                style={[styles.loginoptionsframe]}
-              />
-
-              <Text
-                style={{
-                  backgroundColor: "transparent",
-                  fontSize: 12,
-                  fontFamily: "TransformaSansSemiBold",
-                  color: "white",
-                  textAlign: "center",
-                  marginTop: -90,
-                  // position: "absolute",
-                  zIndex: 1,
-                }}
-              >
-                Log In/Sign Up using:
-              </Text>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignSelf: "center",
-                  alignItems: "center",
-                  marginTop: 10,
-                }}
-              >
-                <GoogleIcon />
-                <AppleIcon />
-                <FacebookIcon />
-              </View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignSelf: "center",
+                alignItems: "center",
+                marginTop: 10,
+              }}
+            >
+              <GoogleIcon />
+              <AppleIcon />
+              <FacebookIcon />
             </View>
           </View>
-        </ImageBackground>
-      </SafeAreaView>
-    </SafeAreaProvider>
+        </View>
+      </ImageBackground>
+    </View>
+    // </SafeAreaProvider>
   );
 };
 

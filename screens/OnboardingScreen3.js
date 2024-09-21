@@ -18,31 +18,31 @@ import OnboardBackButton2 from "@/components/OnboardBackButton2";
 const OnboardingScreen2 = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ height: "100%" }}>
-        <ImageBackground
-          source={require("@/assets/images/onboardingpage3.png")}
-          resizeMode="cover"
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            height: "100%",
-          }}
-        >
-          <Pressable onPress={() => navigation.navigate("SignIn")}>
-            <View style={{ paddingTop: 710, left: 278 }}>
-              <OnboardButton3 />
-            </View>
-          </Pressable>
+    // <SafeAreaProvider>
+    <View style={{ height: "100%" }}>
+      <ImageBackground
+        source={require("@/assets/images/onboardingpage3.png")}
+        resizeMode="cover"
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          height: "100%",
+        }}
+      >
+        <Pressable onPress={() => navigation.navigate("SignIn")}>
+          <View style={{ paddingTop: 700, left: 276 }}>
+            <OnboardButton3 />
+          </View>
+        </Pressable>
 
-          <Pressable onPress={() => navigation.navigate("OnboardingScreen2")}>
-            <View style={{ marginTop: -228, left: 54 }}>
-              <OnboardBackButton2 />
-            </View>
-          </Pressable>
-        </ImageBackground>
-      </SafeAreaView>
-    </SafeAreaProvider>
+        <Pressable onPress={() => navigation.navigate("OnboardingScreen2")}>
+          <View style={{ marginTop: -228, left: 54 }}>
+            <OnboardBackButton2 />
+          </View>
+        </Pressable>
+      </ImageBackground>
+    </View>
+    // </SafeAreaProvider>
   );
 };
 

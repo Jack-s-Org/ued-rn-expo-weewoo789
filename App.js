@@ -29,15 +29,15 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ height: "100%" }}>
-        <RootNavigator />
-        {/* <Icon name="tiktok" size={32} />
+    // <SafeAreaProvider>
+    <View style={{ height: "100%" }}>
+      <RootNavigator />
+      {/* <Icon name="tiktok" size={32} />
       <Image source={require("@/assets/tiktok-add.png")} />
       <Text>Hello</Text> */}
 
-        {/* <VideoPlayer></VideoPlayer> */}
-      </SafeAreaView>
-    </SafeAreaProvider>
+      {/* <VideoPlayer></VideoPlayer> */}
+    </View>
+    // </SafeAreaProvider>
   );
 }

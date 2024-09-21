@@ -162,411 +162,407 @@ const GeneralOverviewScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ height: "100%" }}>
+    // <SafeAreaProvider>
+    <View style={{ height: "100%" }}>
+      <ImageBackground
+        source={require("@/assets/images/background.png")}
+        resizeMode="cover"
+        style={{
+          flex: 1,
+          // justifyContent: "center",
+          height: "100%",
+        }}
+      >
         <ImageBackground
-          source={require("@/assets/images/background.png")}
-          resizeMode="cover"
+          source={require("@/assets/images/smalltopframe.png")}
           style={{
-            flex: 1,
-            // justifyContent: "center",
-            height: "100%",
+            top: 0,
+            width: 390,
+            height: 166,
+            justifyContent: "center",
+            zIndex: 10,
           }}
         >
-          <ImageBackground
-            source={require("@/assets/images/smalltopframe.png")}
+          <View
             style={{
-              top: 0,
-              width: 390,
-              height: 166,
-              justifyContent: "center",
-              zIndex: 10,
+              flexDirection: "row",
+              alignItems: "center",
+              paddingHorizontal: 20,
+              columnGap: 20,
+              // justifyContent: "center",
+              marginBottom: 6,
+              marginTop: 26,
+              top: -14,
+              // backgroundColor: "red",
+              // paddingTop: 0,
             }}
           >
-            <View
+            <View>
+              <BackIcon
+                onPress={() => {
+                  navigation.goBack();
+                }}
+              ></BackIcon>
+            </View>
+
+            <View style={{ justifyContent: "center", alignItems: "center" }}>
+              <Text
+                style={{
+                  fontFamily: "TransformaMixSemiBold",
+                  fontSize: 28,
+                  backgroundColor: "transparent",
+                  color: "white",
+                  textAlign: "center",
+                  width: 250,
+                }}
+              >
+                Route Analysis
+              </Text>
+            </View>
+            <View>
+              <NextIcon
+                onPress={() => {
+                  navigation.navigate("Library", {
+                    screen: "WhatToDo",
+                  });
+                }}
+              ></NextIcon>
+            </View>
+          </View>
+        </ImageBackground>
+
+        <Pressable
+          onPress={() => {
+            hideUnevenVisibility();
+            hideAvoidVisibility();
+            hideStreamVisibility();
+            hideSiteVisibility();
+          }}
+          style={{ flex: 1 }}
+        >
+          <View>
+            <ImageBackground
+              source={require("@/assets/images/routeanalysismap.png")}
               style={{
-                flexDirection: "row",
-                alignItems: "center",
-                paddingHorizontal: 20,
-                columnGap: 20,
+                width: 390,
+                height: 844,
                 // justifyContent: "center",
-                marginBottom: 6,
-                marginTop: 26,
-                top: -14,
-                // backgroundColor: "red",
-                // paddingTop: 0,
+                alignSelf: "center",
+                top: -160,
               }}
             >
               <View>
-                <BackIcon
-                  onPress={() => {
-                    navigation.goBack();
-                  }}
-                ></BackIcon>
-              </View>
-
-              <View style={{ justifyContent: "center", alignItems: "center" }}>
-                <Text
-                  style={{
-                    fontFamily: "TransformaMixSemiBold",
-                    fontSize: 28,
-                    backgroundColor: "transparent",
-                    color: "white",
-                    textAlign: "center",
-                    width: 250,
-                  }}
-                >
-                  Route Analysis
-                </Text>
-              </View>
-              <View>
-                <NextIcon
-                  onPress={() => {
-                    navigation.navigate("Library", {
-                      screen: "WhatToDo",
-                    });
-                  }}
-                ></NextIcon>
-              </View>
-            </View>
-          </ImageBackground>
-
-          <Pressable
-            onPress={() => {
-              hideUnevenVisibility();
-              hideAvoidVisibility();
-              hideStreamVisibility();
-              hideSiteVisibility();
-            }}
-            style={{ flex: 1 }}
-          >
-            <View>
-              <ImageBackground
-                source={require("@/assets/images/routeanalysismap.png")}
-                style={{
-                  width: 390,
-                  height: 844,
-                  // justifyContent: "center",
-                  alignSelf: "center",
-                  top: -160,
-                }}
-              >
                 <View>
-                  <View>
-                    <Pressable
-                      onPress={() => {
-                        iconsVisibility();
-                        hideIconsVisibility();
-                      }}
-                    >
-                      <View
-                        style={{ paddingTop: 180, paddingLeft: 20, width: 40 }}
-                      >
-                        {iconsVisible ? <NonVisibleIcon /> : <VisibleIcon />}
-                      </View>
-                    </Pressable>
-                  </View>
-
-                  <View
-                    style={{
-                      flexDirection: "column",
-                      rowGap: 6,
-                      zIndex: 10,
-                      marginLeft: 324,
-                      marginTop: -46,
-                      // backgroundColor: "red",
+                  <Pressable
+                    onPress={() => {
+                      iconsVisibility();
+                      hideIconsVisibility();
                     }}
                   >
-                    <Pressable onPress={toggleWeatherAnim}>
-                      <Animated.View
-                        style={{
-                          transform: [
-                            { translateX: weatherAnimX },
-                            { translateY: weatherAnimY },
-                          ],
-                        }}
-                      >
-                        {weatherExpanded ? (
-                          <WeatherIcon />
-                        ) : (
-                          <WeatherExpanded />
-                        )}
-                        {/* <WeatherIcon /> */}
-                      </Animated.View>
-                    </Pressable>
-
-                    <Pressable onPress={toggleInjuryAnim}>
-                      <Animated.View
-                        style={{
-                          transform: [
-                            { translateX: injuryAnimX },
-                            { translateY: injuryAnimY },
-                          ],
-                        }}
-                      >
-                        {injuryExpanded ? <InjuryIcon /> : <InjuryExpanded />}
-                      </Animated.View>
-                    </Pressable>
-
-                    <Pressable onPress={toggleMosquitoAnim}>
-                      <Animated.View
-                        style={{
-                          transform: [
-                            { translateX: mosquitoAnimX },
-                            { translateY: mosquitoAnimY },
-                          ],
-                        }}
-                      >
-                        {mosquitoExpanded ? (
-                          <MosquitoIcon />
-                        ) : (
-                          <MosquitoExpanded />
-                        )}
-                      </Animated.View>
-                    </Pressable>
-                  </View>
+                    <View
+                      style={{ paddingTop: 180, paddingLeft: 20, width: 40 }}
+                    >
+                      {iconsVisible ? <NonVisibleIcon /> : <VisibleIcon />}
+                    </View>
+                  </Pressable>
                 </View>
 
-                <Pressable onPress={unevenVisibility}>
-                  <View
-                    style={{
-                      marginTop: -44,
-                      alignSelf: "center",
-                      // position: "absolute",
-                      left: -28,
-                      // zIndex: 50,
-                      // backgroundColor: "red",
-                      display: iconsVisible ? "flex" : "none",
-                    }}
-                  >
-                    <UnevenSurfaceIcon />
-                  </View>
-                </Pressable>
-
-                <Pressable onPress={avoidVisibility}>
-                  <View
-                    style={{
-                      marginTop: 92,
-                      alignSelf: "center",
-                      left: -8,
-                      display: iconsVisible ? "flex" : "none",
-                    }}
-                  >
-                    <AreasToAvoidIcon />
-                  </View>
-                </Pressable>
-
-                <Pressable onPress={unevenVisibility}>
-                  <View
-                    style={{
-                      marginTop: 18,
-                      alignSelf: "center",
-                      left: -36,
-                      display: iconsVisible ? "flex" : "none",
-                    }}
-                  >
-                    <UnevenSurfaceIcon />
-                  </View>
-                </Pressable>
-
-                <Pressable onPress={unevenVisibility}>
-                  <View
-                    style={{
-                      marginTop: 18,
-                      alignSelf: "center",
-                      left: -12,
-                      display: iconsVisible ? "flex" : "none",
-                    }}
-                  >
-                    <UnevenSurfaceIcon />
-                  </View>
-                </Pressable>
-
-                <Pressable onPress={avoidVisibility}>
-                  <View
-                    style={{
-                      marginTop: 10,
-                      alignSelf: "center",
-                      left: 56,
-                      display: iconsVisible ? "flex" : "none",
-                    }}
-                  >
-                    <AreasToAvoidIcon />
-                  </View>
-                </Pressable>
-
-                <Pressable onPress={streamVisibility}>
-                  <View
-                    style={{
-                      marginTop: -4,
-                      alignSelf: "center",
-                      left: 96,
-                      display: iconsVisible ? "flex" : "none",
-                    }}
-                  >
-                    <StreamIcon />
-                  </View>
-                </Pressable>
-
-                <Pressable onPress={siteVisibility}>
-                  <View
-                    style={{
-                      marginTop: 2,
-                      alignSelf: "center",
-                      left: 136,
-                      display: iconsVisible ? "flex" : "none",
-                    }}
-                  >
-                    <SiteEntriesIcon />
-                  </View>
-                </Pressable>
-
-                <Pressable onPress={siteVisibility}>
-                  <View
-                    style={{
-                      marginTop: -38,
-                      alignSelf: "center",
-                      left: 36,
-                      display: iconsVisible ? "flex" : "none",
-                    }}
-                  >
-                    <FlippedSiteEntiresIcon />
-                  </View>
-                </Pressable>
-
-                {unevenVisible && (
-                  <>
-                    {/* Dimmer Overlay */}
-                    <View
+                <View
+                  style={{
+                    flexDirection: "column",
+                    rowGap: 6,
+                    zIndex: 10,
+                    marginLeft: 324,
+                    marginTop: -46,
+                    // backgroundColor: "red",
+                  }}
+                >
+                  <Pressable onPress={toggleWeatherAnim}>
+                    <Animated.View
                       style={{
-                        position: "absolute",
-                        top: 0,
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        backgroundColor: "rgba(0, 0, 0, 0.3)", // Adjust opacity to dim the background
-                        zIndex: 9, // Ensure the dimmer is behind the icon
-                      }}
-                    />
-                    <View
-                      style={{
-                        display: unevenVisible ? "flex" : "none",
-                        zIndex: 10,
-                        top: 0,
-                        bottom: 0,
-                        alignSelf: "center",
-                        marginTop: -340,
+                        transform: [
+                          { translateX: weatherAnimX },
+                          { translateY: weatherAnimY },
+                        ],
                       }}
                     >
-                      <Image
-                        source={require("@/assets/images/unevensurface.png")}
-                        style={{ width: 146, height: 144 }}
-                      />
-                    </View>
-                  </>
-                )}
+                      {weatherExpanded ? <WeatherIcon /> : <WeatherExpanded />}
+                      {/* <WeatherIcon /> */}
+                    </Animated.View>
+                  </Pressable>
 
-                {avoidVisible && (
-                  <>
-                    {/* Dimmer Overlay */}
-                    <View
+                  <Pressable onPress={toggleInjuryAnim}>
+                    <Animated.View
                       style={{
-                        position: "absolute",
-                        top: 0,
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        backgroundColor: "rgba(0, 0, 0, 0.3)", // Adjust opacity to dim the background
-                        zIndex: 9, // Ensure the dimmer is behind the icon
-                      }}
-                    />
-                    <View
-                      style={{
-                        display: avoidVisible ? "flex" : "none",
-                        zIndex: 10,
-                        top: 0,
-                        bottom: 0,
-                        alignSelf: "center",
-                        marginTop: -340,
+                        transform: [
+                          { translateX: injuryAnimX },
+                          { translateY: injuryAnimY },
+                        ],
                       }}
                     >
-                      <Image
-                        source={require("@/assets/images/areastoavoid.png")}
-                        style={{ width: 146, height: 144 }}
-                      />
-                    </View>
-                  </>
-                )}
+                      {injuryExpanded ? <InjuryIcon /> : <InjuryExpanded />}
+                    </Animated.View>
+                  </Pressable>
 
-                {streamVisible && (
-                  <>
-                    {/* Dimmer Overlay */}
-                    <View
+                  <Pressable onPress={toggleMosquitoAnim}>
+                    <Animated.View
                       style={{
-                        position: "absolute",
-                        top: 0,
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        backgroundColor: "rgba(0, 0, 0, 0.3)", // Adjust opacity to dim the background
-                        zIndex: 9, // Ensure the dimmer is behind the icon
-                      }}
-                    />
-                    <View
-                      style={{
-                        display: streamVisible ? "flex" : "none",
-                        zIndex: 10,
-                        top: 0,
-                        bottom: 0,
-                        alignSelf: "center",
-                        marginTop: -340,
+                        transform: [
+                          { translateX: mosquitoAnimX },
+                          { translateY: mosquitoAnimY },
+                        ],
                       }}
                     >
-                      <Image
-                        source={require("@/assets/images/stream.png")}
-                        style={{ width: 146, height: 144 }}
-                      />
-                    </View>
-                  </>
-                )}
+                      {mosquitoExpanded ? (
+                        <MosquitoIcon />
+                      ) : (
+                        <MosquitoExpanded />
+                      )}
+                    </Animated.View>
+                  </Pressable>
+                </View>
+              </View>
 
-                {siteVisible && (
-                  <>
-                    {/* Dimmer Overlay */}
-                    <View
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        backgroundColor: "rgba(0, 0, 0, 0.3)", // Adjust opacity to dim the background
-                        zIndex: 9, // Ensure the dimmer is behind the icon
-                      }}
+              <Pressable onPress={unevenVisibility}>
+                <View
+                  style={{
+                    marginTop: -44,
+                    alignSelf: "center",
+                    // position: "absolute",
+                    left: -28,
+                    // zIndex: 50,
+                    // backgroundColor: "red",
+                    display: iconsVisible ? "flex" : "none",
+                  }}
+                >
+                  <UnevenSurfaceIcon />
+                </View>
+              </Pressable>
+
+              <Pressable onPress={avoidVisibility}>
+                <View
+                  style={{
+                    marginTop: 92,
+                    alignSelf: "center",
+                    left: -8,
+                    display: iconsVisible ? "flex" : "none",
+                  }}
+                >
+                  <AreasToAvoidIcon />
+                </View>
+              </Pressable>
+
+              <Pressable onPress={unevenVisibility}>
+                <View
+                  style={{
+                    marginTop: 18,
+                    alignSelf: "center",
+                    left: -36,
+                    display: iconsVisible ? "flex" : "none",
+                  }}
+                >
+                  <UnevenSurfaceIcon />
+                </View>
+              </Pressable>
+
+              <Pressable onPress={unevenVisibility}>
+                <View
+                  style={{
+                    marginTop: 18,
+                    alignSelf: "center",
+                    left: -12,
+                    display: iconsVisible ? "flex" : "none",
+                  }}
+                >
+                  <UnevenSurfaceIcon />
+                </View>
+              </Pressable>
+
+              <Pressable onPress={avoidVisibility}>
+                <View
+                  style={{
+                    marginTop: 10,
+                    alignSelf: "center",
+                    left: 56,
+                    display: iconsVisible ? "flex" : "none",
+                  }}
+                >
+                  <AreasToAvoidIcon />
+                </View>
+              </Pressable>
+
+              <Pressable onPress={streamVisibility}>
+                <View
+                  style={{
+                    marginTop: -4,
+                    alignSelf: "center",
+                    left: 96,
+                    display: iconsVisible ? "flex" : "none",
+                  }}
+                >
+                  <StreamIcon />
+                </View>
+              </Pressable>
+
+              <Pressable onPress={siteVisibility}>
+                <View
+                  style={{
+                    marginTop: 2,
+                    alignSelf: "center",
+                    left: 136,
+                    display: iconsVisible ? "flex" : "none",
+                  }}
+                >
+                  <SiteEntriesIcon />
+                </View>
+              </Pressable>
+
+              <Pressable onPress={siteVisibility}>
+                <View
+                  style={{
+                    marginTop: -38,
+                    alignSelf: "center",
+                    left: 36,
+                    display: iconsVisible ? "flex" : "none",
+                  }}
+                >
+                  <FlippedSiteEntiresIcon />
+                </View>
+              </Pressable>
+
+              {unevenVisible && (
+                <>
+                  {/* Dimmer Overlay */}
+                  <View
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      backgroundColor: "rgba(0, 0, 0, 0.3)", // Adjust opacity to dim the background
+                      zIndex: 9, // Ensure the dimmer is behind the icon
+                    }}
+                  />
+                  <View
+                    style={{
+                      display: unevenVisible ? "flex" : "none",
+                      zIndex: 10,
+                      top: 0,
+                      bottom: 0,
+                      alignSelf: "center",
+                      marginTop: -340,
+                    }}
+                  >
+                    <Image
+                      source={require("@/assets/images/unevensurface.png")}
+                      style={{ width: 146, height: 144 }}
                     />
-                    <View
-                      style={{
-                        display: siteVisible ? "flex" : "none",
-                        zIndex: 10,
-                        top: 0,
-                        bottom: 0,
-                        alignSelf: "center",
-                        marginTop: -340,
-                      }}
-                    >
-                      <Image
-                        source={require("@/assets/images/siteentries.png")}
-                        style={{ width: 180, height: 166 }}
-                      />
-                    </View>
-                  </>
-                )}
-              </ImageBackground>
-            </View>
-          </Pressable>
-        </ImageBackground>
-      </SafeAreaView>
-    </SafeAreaProvider>
+                  </View>
+                </>
+              )}
+
+              {avoidVisible && (
+                <>
+                  {/* Dimmer Overlay */}
+                  <View
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      backgroundColor: "rgba(0, 0, 0, 0.3)", // Adjust opacity to dim the background
+                      zIndex: 9, // Ensure the dimmer is behind the icon
+                    }}
+                  />
+                  <View
+                    style={{
+                      display: avoidVisible ? "flex" : "none",
+                      zIndex: 10,
+                      top: 0,
+                      bottom: 0,
+                      alignSelf: "center",
+                      marginTop: -340,
+                    }}
+                  >
+                    <Image
+                      source={require("@/assets/images/areastoavoid.png")}
+                      style={{ width: 146, height: 144 }}
+                    />
+                  </View>
+                </>
+              )}
+
+              {streamVisible && (
+                <>
+                  {/* Dimmer Overlay */}
+                  <View
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      backgroundColor: "rgba(0, 0, 0, 0.3)", // Adjust opacity to dim the background
+                      zIndex: 9, // Ensure the dimmer is behind the icon
+                    }}
+                  />
+                  <View
+                    style={{
+                      display: streamVisible ? "flex" : "none",
+                      zIndex: 10,
+                      top: 0,
+                      bottom: 0,
+                      alignSelf: "center",
+                      marginTop: -340,
+                    }}
+                  >
+                    <Image
+                      source={require("@/assets/images/stream.png")}
+                      style={{ width: 146, height: 144 }}
+                    />
+                  </View>
+                </>
+              )}
+
+              {siteVisible && (
+                <>
+                  {/* Dimmer Overlay */}
+                  <View
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      backgroundColor: "rgba(0, 0, 0, 0.3)", // Adjust opacity to dim the background
+                      zIndex: 9, // Ensure the dimmer is behind the icon
+                    }}
+                  />
+                  <View
+                    style={{
+                      display: siteVisible ? "flex" : "none",
+                      zIndex: 10,
+                      top: 0,
+                      bottom: 0,
+                      alignSelf: "center",
+                      marginTop: -340,
+                    }}
+                  >
+                    <Image
+                      source={require("@/assets/images/siteentries.png")}
+                      style={{ width: 180, height: 166 }}
+                    />
+                  </View>
+                </>
+              )}
+            </ImageBackground>
+          </View>
+        </Pressable>
+      </ImageBackground>
+    </View>
+    // </SafeAreaProvider>
   );
 };
 

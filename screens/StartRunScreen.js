@@ -37,59 +37,59 @@ const StartRunScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ height: "100%" }}>
-        <ImageBackground
-          source={require("@/assets/images/routemap.png")}
-          resizeMode="cover"
+    // <SafeAreaProvider>
+    <View style={{ height: "100%" }}>
+      <ImageBackground
+        source={require("@/assets/images/routemap.png")}
+        resizeMode="cover"
+        style={{
+          flex: 1,
+          // justifyContent: "center",
+          height: "100%",
+        }}
+      >
+        <View style={{ margin: 20, marginTop: 50, position: "absolute" }}>
+          <BackIcon onPress={navigation.goBack} />
+        </View>
+        <View
           style={{
-            flex: 1,
-            // justifyContent: "center",
-            height: "100%",
+            right: 0,
+            margin: 20,
+            marginTop: 44,
+            position: "absolute",
           }}
         >
-          <View style={{ margin: 20, marginTop: 50, position: "absolute" }}>
-            <BackIcon onPress={navigation.goBack} />
-          </View>
-          <View
+          <GlassesIcon />
+        </View>
+        <View>
+          <Image
+            source={require("@/assets/images/location.png")}
             style={{
-              right: 0,
-              margin: 20,
-              marginTop: 44,
-              position: "absolute",
-            }}
-          >
-            <GlassesIcon />
-          </View>
-          <View>
-            <Image
-              source={require("@/assets/images/location.png")}
-              style={{
-                width: 40,
-                height: 40,
-                alignSelf: "center",
-                marginTop: 340,
-                right: 12,
-              }}
-            />
-          </View>
-
-          <View
-            style={{
-              alignContent: "center",
+              width: 40,
+              height: 40,
               alignSelf: "center",
-              marginTop: 240,
+              marginTop: 340,
+              right: 12,
             }}
-          >
-            {showStopButton ? (
-              <StopButton onPress={stopButtonclick} />
-            ) : (
-              <StartButton onPress={startButtonClick} />
-            )}
-          </View>
-        </ImageBackground>
-      </SafeAreaView>
-    </SafeAreaProvider>
+          />
+        </View>
+
+        <View
+          style={{
+            alignContent: "center",
+            alignSelf: "center",
+            marginTop: 240,
+          }}
+        >
+          {showStopButton ? (
+            <StopButton onPress={stopButtonclick} />
+          ) : (
+            <StartButton onPress={startButtonClick} />
+          )}
+        </View>
+      </ImageBackground>
+    </View>
+    // </SafeAreaProvider>
   );
 };
 

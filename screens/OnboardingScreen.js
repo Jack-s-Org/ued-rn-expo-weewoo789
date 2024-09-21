@@ -16,25 +16,25 @@ import { useNavigation } from "@react-navigation/native";
 const OnboardingScreen = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ height: "100%" }}>
-        <ImageBackground
-          source={require("@/assets/images/onboardingpage1.png")}
-          resizeMode="cover"
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            height: "100%",
-          }}
-        >
-          <Pressable onPress={() => navigation.navigate("OnboardingScreen2")}>
-            <View style={{ marginTop: 704, left: 278 }}>
-              <OnboardButton1 />
-            </View>
-          </Pressable>
-        </ImageBackground>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    // <SafeAreaProvider>
+    <View style={{ height: "100%" }}>
+      <ImageBackground
+        source={require("@/assets/images/onboardingpage1.png")}
+        resizeMode="cover"
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          height: "100%",
+        }}
+      >
+        <Pressable onPress={() => navigation.navigate("OnboardingScreen2")}>
+          <View style={{ marginTop: 704, left: 276 }}>
+            <OnboardButton1 />
+          </View>
+        </Pressable>
+      </ImageBackground>
+    </View>
+    // </SafeAreaProvider>
   );
 };
 
