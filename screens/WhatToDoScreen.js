@@ -57,7 +57,16 @@ const RouteLibraryScreen = () => {
               }}
             >
               <View>
-                <BackIcon onPress={() => navigation.goBack()}></BackIcon>
+                <BackIcon
+                  onPress={() => {
+                    console.log(navigation.canGoBack());
+                    if (navigation.canGoBack()) {
+                      navigation.goBack();
+                    } else {
+                      alert("Cannot go back");
+                    }
+                  }}
+                />
               </View>
 
               <View>
@@ -97,7 +106,7 @@ const RouteLibraryScreen = () => {
                   <View>
                     <ImageBackground
                       source={require("@/assets/images/formcontainer1.png")}
-                      style={{ width: 202, height: 207 }}
+                      style={{ width: 202, height: 208 }}
                     >
                       <View style={{ flexDirection: "row" }}>
                         <View style={{ paddingHorizontal: 20, paddingTop: 52 }}>
@@ -140,7 +149,7 @@ const RouteLibraryScreen = () => {
                   <View>
                     <ImageBackground
                       source={require("@/assets/images/formcontainer2.png")}
-                      style={{ width: 202, height: 207 }}
+                      style={{ width: 202, height: 208 }}
                     >
                       <View style={{ flexDirection: "row" }}>
                         <View style={{ paddingHorizontal: 20, paddingTop: 60 }}>
@@ -183,7 +192,7 @@ const RouteLibraryScreen = () => {
                   <View>
                     <ImageBackground
                       source={require("@/assets/images/formcontainer3.png")}
-                      style={{ width: 202, height: 207 }}
+                      style={{ width: 202, height: 208 }}
                     >
                       <View style={{ flexDirection: "row" }}>
                         <View style={{ paddingHorizontal: 20, paddingTop: 52 }}>
@@ -226,7 +235,7 @@ const RouteLibraryScreen = () => {
                   <View>
                     <ImageBackground
                       source={require("@/assets/images/formcontainer4.png")}
-                      style={{ width: 202, height: 207 }}
+                      style={{ width: 202, height: 208 }}
                     >
                       <View style={{ flexDirection: "row" }}>
                         <View style={{ paddingHorizontal: 20, paddingTop: 60 }}>

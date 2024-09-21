@@ -19,7 +19,7 @@ const RootNavigator = () => {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {/* <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} /> */}
         {/* <Stack.Screen name="SignIn" component={SignInScreen} /> */}
-        {/* <Stack.Screen name="Main" component={MainScreens} /> */}
+        <Stack.Screen name="Main" component={MainScreens} />
         {/* <Stack.Screen name="NewHome" component={NewHomeScreen} /> */}
         {/* <Stack.Screen name="SelectRun" component={SelectRunScreen} /> */}
         {/* <Stack.Screen name="GetStarted" component={GetStartedScreen} /> */}
@@ -29,7 +29,7 @@ const RootNavigator = () => {
           component={GeneralOverviewScreen}
         /> */}
         {/* <Stack.Screen name="WhatToDo" component={WhatToDoScreen} /> */}
-        <Stack.Screen name="RouteAnalysis" component={RouteAnalysisScreen} />
+        {/* <Stack.Screen name="RouteAnalysis" component={RouteAnalysisScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

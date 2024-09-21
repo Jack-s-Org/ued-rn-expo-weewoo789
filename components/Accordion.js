@@ -4,6 +4,7 @@ import {
   Text,
   TouchableWithoutFeedback,
   View,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 import SavedRoutesButton from "./SavedRoutesButton";
@@ -12,6 +13,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Accordion({
   title,
@@ -21,6 +23,7 @@ export default function Accordion({
   defaultImage,
   expandedImage,
   onToggle,
+  learnmoreBackground,
 }) {
   // Set default value for details
   const [opened, setOpened] = useState(false);
@@ -41,7 +44,7 @@ export default function Accordion({
 
   // useAnimatedStyle to create animated height style
   const animatedContainerStyle = useAnimatedStyle(() => {
-    const height = animation.value * 62 + 73; // Adjust base height and expanded height as needed
+    const height = animation.value * 100 + 73; // Adjust base height and expanded height as needed
     return {
       height: height,
     };
@@ -54,6 +57,8 @@ export default function Accordion({
       height: contentHeight,
     };
   });
+
+  const navigation = useNavigation();
 
   return (
     <Animated.View style={[styles.container, animatedContainerStyle]}>
@@ -70,7 +75,31 @@ export default function Accordion({
         </TouchableWithoutFeedback>
 
         <Animated.View style={[styles.content, animatedContentStyle]}>
-          <Text style={styles.details}>{details}</Text>
+          <View style={{ paddingTop: 10 }}>
+            <Text style={styles.details}>{details}</Text>
+            <Pressable
+              onPress={() => {
+                navigation.navigate("Library", {
+                  screen: "RouteLibrary",
+                });
+                // Fallback to navigate if goBack is not possible
+              }}
+            >
+              <View style={{ paddingTop: 10 }}>
+                <ImageBackground
+                  source={learnmoreBackground}
+                  style={{
+                    width: 70,
+                    height: 28,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Text style={styles.learnmore}>Learn More</Text>
+                </ImageBackground>
+              </View>
+            </Pressable>
+          </View>
         </Animated.View>
       </ImageBackground>
     </Animated.View>
@@ -113,5 +142,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     backgroundColor: "transparent",
     color: "white",
+  },
+  learnmore: {
+    fontFamily: "TransformaSansMedium",
+    fontSize: 8,
+    color: "white",
+    backgroundColor: "transparent",
   },
 });

@@ -57,7 +57,11 @@ const SelectRunScreen = () => {
             }}
           >
             <View>
-              <BackIcon onPress={() => navigation.goBack()}></BackIcon>
+              <BackIcon
+                onPress={() => {
+                  navigation.navigate("Home");
+                }}
+              />
             </View>
             <View
             // style={{
@@ -156,17 +160,28 @@ const SelectRunScreen = () => {
                   </View>
                 </ImageBackground>
 
-                <ImageBackground
-                  source={require("@/assets/images/trailrun.png")}
-                  style={{ width: 168, height: 247, justifyContent: "center" }}
+                <Pressable
+                  onPress={() => {
+                    navigation.navigate("GetStarted");
+                    // Fallback to navigate if goBack is not possible
+                  }}
                 >
-                  <View style={styles.card}>
-                    <TrailRunIcon></TrailRunIcon>
-                    <View>
-                      <Text style={styles.text}>Trail Run</Text>
+                  <ImageBackground
+                    source={require("@/assets/images/trailrun.png")}
+                    style={{
+                      width: 168,
+                      height: 247,
+                      justifyContent: "center",
+                    }}
+                  >
+                    <View style={styles.card}>
+                      <TrailRunIcon></TrailRunIcon>
+                      <View>
+                        <Text style={styles.text}>Trail Run</Text>
+                      </View>
                     </View>
-                  </View>
-                </ImageBackground>
+                  </ImageBackground>
+                </Pressable>
 
                 {/* <ImageBackground
                 source={require("@/assets/images/beachrun.png")}

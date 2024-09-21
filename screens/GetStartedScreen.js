@@ -15,8 +15,11 @@ import { CollapsibleContainer } from "@/components/CollapsibleContainer";
 import Accordion from "@/components/Accordion";
 import AccordionList from "@/components/AccordionList";
 import { StatusBar } from "expo-status-bar";
+import { useNavigation } from "@react-navigation/native";
 
 const GetStartedScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ height: "100%" }}>
@@ -54,7 +57,14 @@ const GetStartedScreen = () => {
               }}
             >
               <View>
-                <BackIcon></BackIcon>
+                <BackIcon
+                  onPress={() => {
+                    navigation.navigate("Run", {
+                      screen: "SelectRun",
+                    });
+                    // Fallback to navigate if goBack is not possible
+                  }}
+                ></BackIcon>
               </View>
 
               <View>

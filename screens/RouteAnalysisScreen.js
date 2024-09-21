@@ -30,6 +30,7 @@ import MosquitoIcon from "@/components/MosquitoIcon";
 import WeatherExpanded from "@/components/WeatherExpanded";
 import InjuryExpanded from "@/components/InjuryExpanded";
 import MosquitoExpanded from "./MosquitoExpanded";
+import { useNavigation } from "@react-navigation/native";
 
 const GeneralOverviewScreen = () => {
   const [unevenVisible, setUnevenVisible] = useState(false);
@@ -168,6 +169,8 @@ const GeneralOverviewScreen = () => {
     }
   };
 
+  const navigation = useNavigation();
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ height: "100%" }}>
@@ -205,7 +208,11 @@ const GeneralOverviewScreen = () => {
               }}
             >
               <View>
-                <BackIcon></BackIcon>
+                <BackIcon
+                  onPress={() => {
+                    navigation.goBack();
+                  }}
+                ></BackIcon>
               </View>
 
               <View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -223,7 +230,13 @@ const GeneralOverviewScreen = () => {
                 </Text>
               </View>
               <View>
-                <NextIcon></NextIcon>
+                <NextIcon
+                  onPress={() => {
+                    navigation.navigate("Library", {
+                      screen: "WhatToDo",
+                    });
+                  }}
+                ></NextIcon>
               </View>
             </View>
           </ImageBackground>

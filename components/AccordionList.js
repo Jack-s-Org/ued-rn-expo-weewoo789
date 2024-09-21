@@ -13,22 +13,22 @@ import DiscoverRoutesButton from "./DiscoverRoutesButton";
 import CustomizeRouteButton from "./CustomizeRouteButton";
 
 export default function AccordionList() {
-  const [containerHeight, setContainerHeight] = useState(290); // Set an initial height
+  // const [containerHeight, setContainerHeight] = useState(290); // Set an initial height
 
   // Function to update container height dynamically
-  const updateContainerHeight = (accordionHeight) => {
-    setContainerHeight((prevHeight) =>
-      Math.max(62, prevHeight + accordionHeight)
-    );
-  };
+  // const updateContainerHeight = (accordionHeight) => {
+  //   setContainerHeight((prevHeight) =>
+  //     Math.max(62, prevHeight + accordionHeight)
+  //   );
+  // };
 
   return (
     <ScrollView style={{ paddingBottom: 20 }}>
       <View style={{ flex: 1, flexGrow: 1 }}>
-        <Animated.View style={{ height: containerHeight }}>
+        <Animated.View style={{ flex: 1 }}>
           <ImageBackground
             source={require("@/assets/images/selectioncontainer.png")} // The image for the container background
-            style={[styles.imageBackground, { height: containerHeight }]} // Dynamically update the height
+            style={[styles.imageBackground]} // Dynamically update the height
             resizeMode="cover" // To ensure the image resizes correctly
           >
             <View
@@ -58,7 +58,8 @@ export default function AccordionList() {
               defaultImage={require("@/assets/images/savedroutescontainer.png")} // Image for accordion 1
               expandedImage={require("@/assets/images/savedroutesexpanded.png")}
               button={<SavedRoutesButton />}
-              onToggle={(heightChange) => updateContainerHeight(heightChange)}
+              // onToggle={(heightChange) => updateContainerHeight(heightChange)}
+              learnmoreBackground={require("@/assets/images/savedroutesbutton.png")}
             />
             <Accordion
               title="Discover routes"
@@ -66,7 +67,8 @@ export default function AccordionList() {
               defaultImage={require("@/assets/images/discoverroutescontainer.png")} // Image for accordion 2
               expandedImage={require("@/assets/images/discoverroutesexpanded.png")}
               button={<DiscoverRoutesButton />}
-              onToggle={(heightChange) => updateContainerHeight(heightChange)}
+              // onToggle={(heightChange) => updateContainerHeight(heightChange)}
+              learnmoreBackground={require("@/assets/images/discoverroutesbutton.png")}
             />
             <Accordion
               title="Customize route"
@@ -74,7 +76,8 @@ export default function AccordionList() {
               defaultImage={require("@/assets/images/customizeroutecontainer.png")} // Image for accordion 3
               expandedImage={require("@/assets/images/customizerouteexpanded.png")}
               button={<CustomizeRouteButton />}
-              onToggle={(heightChange) => updateContainerHeight(heightChange)}
+              // onToggle={(heightChange) => updateContainerHeight(heightChange)}
+              learnmoreBackground={require("@/assets/images/customizeroutebutton.png")}
             />
           </ImageBackground>
         </Animated.View>

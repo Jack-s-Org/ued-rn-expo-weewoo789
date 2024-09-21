@@ -14,8 +14,11 @@ import BackIcon from "@/components/BackIcon";
 import SearchIcon from "@/components/SearchIcon";
 import OverviewCarousel from "@/components/OverviewCarousel";
 import SwipeableCarouselParallaxHorizontal from "@/components/SwipeableCarousel";
+import { useNavigation } from "@react-navigation/native";
 
 const GeneralOverviewScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ height: "100%" }}>
@@ -52,7 +55,11 @@ const GeneralOverviewScreen = () => {
               }}
             >
               <View>
-                <BackIcon></BackIcon>
+                <BackIcon
+                  onPress={() => {
+                    navigation.goBack();
+                  }}
+                ></BackIcon>
               </View>
 
               <View>
@@ -76,7 +83,7 @@ const GeneralOverviewScreen = () => {
             <OverviewCarousel></OverviewCarousel>
           </View> */}
 
-          <View>
+          <View style={{ paddingTop: 4 }}>
             <SwipeableCarouselParallaxHorizontal></SwipeableCarouselParallaxHorizontal>
           </View>
         </ImageBackground>

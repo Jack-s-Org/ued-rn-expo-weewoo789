@@ -28,24 +28,27 @@ import WhatToDoScreen from "./WhatToDoScreen";
 import RouteAnalysisScreen from "./RouteAnalysisScreen";
 
 const MainStacks = createNativeStackNavigator();
+// const SecondaryStacks = createNativeStackNavigator();
+const RunStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const LibraryStack = createNativeStackNavigator();
 
 const Empty = () => null;
 
-const getCommon = (Stack) => {
-  return [
-    <Stack.Screen
-      key="selectrun"
-      name="SelectRun"
-      component={SelectRunScreen}
-    />,
-    <Stack.Screen
-      key="getstarted"
-      name="GetStarted"
-      component={GetStartedScreen}
-    />,
-  ];
-};
+// const getCommon = (Stack) => {
+//   return [
+//     <Stack.Screen
+//       key="selectrun"
+//       name="SelectRun"
+//       component={SelectRunScreen}
+//     />,
+//     <Stack.Screen
+//       key="getstarted"
+//       name="GetStarted"
+//       component={GetStartedScreen}
+//     />,
+//   ];
+// };
 
 // const Tab1 = () => {
 //   const MainStack = createNativeStackNavigator();
@@ -155,7 +158,7 @@ const MainTabs = ({ navigation }) => {
 
         <Tab.Screen
           name="Run"
-          component={SelectRunScreen}
+          component={RunStackScreens}
           options={{
             tabBarIcon: ({ color, size, focused }) => (
               // <Ionicons name="home" size={size} color={color} />
@@ -203,7 +206,7 @@ const MainTabs = ({ navigation }) => {
 
         <Tab.Screen
           name="Library"
-          component={RouteLibraryScreen}
+          component={LibraryStackScreen}
           options={{
             tabBarIcon: ({ color, size, focused }) => (
               // <Ionicons name="home" size={size} color={color} />
@@ -303,7 +306,7 @@ const MainScreens = () => {
         component={MainTabs}
         options={{ headerShown: false }}
       />
-      <MainStacks.Screen
+      {/* <MainStacks.Screen
         name="Add"
         component={AddScreen}
         options={{ animation: "fade_from_bottom" }}
@@ -312,20 +315,26 @@ const MainScreens = () => {
         name="Settings"
         component={SettingsScreen}
         options={{ animation: "fade_from_bottom" }}
+      />   */}
+
+      <MainStacks.Screen
+        name="NewHome"
+        component={NewHomeScreen}
+        options={{ animation: "fade_from_bottom", headerShown: false }}
       />
       <MainStacks.Screen
         name="SelectRun"
-        component={SelectRunScreen}
+        component={RunStackScreens}
         options={{ animation: "fade_from_bottom", headerShown: false }}
       />
       <MainStacks.Screen
         name="GetStarted"
-        component={GetStartedScreen}
+        component={RunStackScreens}
         options={{ animation: "fade_from_bottom", headerShown: false }}
       />
       <MainStacks.Screen
         name="RouteLibrary"
-        component={RouteLibraryScreen}
+        component={LibraryStackScreen}
         options={{ animation: "fade_from_bottom", headerShown: false }}
       />
       <MainStacks.Screen
@@ -333,26 +342,21 @@ const MainScreens = () => {
         component={DiscoverRoutesScreen}
         options={{ animation: "fade_from_bottom", headerShown: false }}
       />
-      <MainStacks.Screen
+      {/* <MainStacks.Screen
         name="GeneralOverview"
-        component={GeneralOverviewScreen}
+        component={LibraryStackScreen}
         options={{ animation: "fade_from_bottom", headerShown: false }}
-      />
-      <MainStacks.Screen
+      /> */}
+      {/* <MainStacks.Screen
         name="WhatToDo"
         component={WhatToDoScreen}
         options={{ animation: "fade_from_bottom", headerShown: false }}
-      />
-      <MainStacks.Screen
+      /> */}
+      {/* <MainStacks.Screen
         name="RouteAnalysis"
-        component={RouteAnalysisScreen}
+        component={LibraryStackScreen}
         options={{ animation: "fade_from_bottom", headerShown: false }}
-      />
-      <MainStacks.Screen
-        name="NewHome"
-        component={NewHomeScreen}
-        options={{ animation: "fade_from_bottom", headerShown: false }}
-      />
+      /> */}
 
       <MainStacks.Screen
         name="SignIn"
@@ -360,6 +364,32 @@ const MainScreens = () => {
         options={{ animation: "fade_from_bottom" }}
       />
     </MainStacks.Navigator>
+  );
+};
+
+const RunStackScreens = () => {
+  return (
+    <RunStack.Navigator screenOptions={{ headerShown: false }}>
+      <RunStack.Screen name="SelectRun" component={SelectRunScreen} />
+      <RunStack.Screen name="GetStarted" component={GetStartedScreen} />
+    </RunStack.Navigator>
+  );
+};
+
+const LibraryStackScreen = () => {
+  return (
+    <LibraryStack.Navigator screenOptions={{ headerShown: false }}>
+      <LibraryStack.Screen name="RouteLibrary" component={RouteLibraryScreen} />
+      <LibraryStack.Screen
+        name="GeneralOverview"
+        component={GeneralOverviewScreen}
+      />
+      <LibraryStack.Screen
+        name="RouteAnalysis"
+        component={RouteAnalysisScreen}
+      />
+      <LibraryStack.Screen name="WhatToDo" component={WhatToDoScreen} />
+    </LibraryStack.Navigator>
   );
 };
 
